@@ -303,9 +303,9 @@ var AnswerListView = Backbone.View.extend({
 							while ( div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->', all[0]);
 						       	return v > 4 ? v : undef;
 					       	}());
-						alert("End Survey");
-						appRouter.navigate('/', {trigger: false});
-						location.assign(HOME);
+						//alert("End Survey");
+						//appRouter.navigate('/', {trigger: false});
+						//location.assign(HOME);
 					}
 				},
 				error: function(model,response){

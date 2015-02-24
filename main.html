@@ -40,9 +40,9 @@
     	<script type="text/template" id="tpl-intro-details">
 	<div id="landing" data-theme="b">
 	  <ul id="landList" data-role="listview">
-		<li id='startSurvey'><a data-role="button" class="libtn"><br><br><br>Start Survey</a></li>
-		<li id='submitData'><a data-role="button" class="libtn"><br><br><br>Submit to SCCWRP</a></li>
-		<li id='getUtilities'><a data-role="button" class="libtn"><br><br><br>Utilities</a></li>
+		  <li id='startSurvey'><a data-role="button" class="libtn"><br>Start Survey</a></li>
+		  <li id='submitData'><a data-role="button" class="libtn"><br>Submit to SCCWRP</a></li>
+		  <li id='getUtilities'><a data-role="button" class="libtn"><br>Utilities</a></li>
 	  </ul>
 	</div>
 	</script>
@@ -332,5 +332,13 @@
 	<script src="js/views/StorageListView.js"></script>
 	<script src="js/views/UtilitiesView.js"></script>
 	<script src="js/application.js"></script>
+    <script type="text/javascript">
+        if((deviceType == "iPad" || deviceType == "iPhone")){
+            $('#Mod-bar').css('width','60%');
+            $('#Full-bar').css('width','60%');
+            $('#modLabel').css('width','110px');
+            $('#fullLabel').css('width','110px');
+        } 
+  </script>
   </body>
 </html>
