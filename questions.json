@@ -1,0 +1,73 @@
+[
+  {
+	"title": "Select StationID",
+	"action": "none",
+      	"type": "select",
+      	"menu": "Select One,2009,2010,3000,3015",
+        "other": "n",
+	"otype": "",
+	"check": "select",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "1"
+  },
+  {
+	"title": "What is the channel type?",
+	"action": "none",
+      	"type": "radio",
+      	"menu": "Natural,Engineered",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "2"
+  },
+  {
+	"title": "What is the flow?",
+	"action": "none",
+      	"type": "radio",
+      	"menu": "Perennial,Annual",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "3"
+  },
+  {
+	"title": "What type of organisms are present?",
+	"action": "none",
+      	"type": "select",
+      	"menu": "Algae,Diatoms,Bugs",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "4"
+  },
+  {
+	"title": "Submit Image",
+	"action": "none",
+      	"type": "radio",
+      	"menu": "Yes,No",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "5"
+  }
+]

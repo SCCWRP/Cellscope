@@ -1,0 +1,76 @@
+html{
+   height: 100%;
+   text-align:center;
+}
+body{
+   margin: 0;
+   padding: 0;
+   height: 100%;
+}
+#one{
+height:100%;
+}
+#header{
+display:none;
+}
+#dialog{
+visibility:hidden;
+}
+#intro{
+position:absolute;
+top:10%;
+}
+#question{
+margin-left:10%;
+margin-right:10%;
+white-space:normal;
+}
+input[type=checkbox]{
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height:1px; 
+  width:1px; 
+  margin:-1px; 
+  padding:0;
+  border:0;
+}
+#landList{
+height:100%;
+overflow:hidden;
+}
+ #landList li{
+	 height:33%;
+ }
+ #landList .ui-btn-text{
+	 font-size: 40px;
+ }
+ #footButtons .ui-btn-text{
+	 font-size: 40px;
+ }
+ .libtn{
+	 border: 0;
+	 top: 15px;
+ }
+ #question {
+	 font-size: 40px; !important
+ }
+ .ui-btn {
+	 font-size: 25px;
+ }
+ .ui-mini{
+	 font-size: 20px;
+ }
+ .ui-checkbox{
+	 font-size: 40px;
+ }
+ .ui-controlgroup-controls{
+	 text-align: center;
+	 width: 100%;
+ }
+ body, input, select, textarea, button, .ui-btn {
+	 line-height: 1.1;
+ }
+ .ui-header {
+	 min-height: 100px;
+ }

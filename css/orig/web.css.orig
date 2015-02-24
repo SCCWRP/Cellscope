@@ -1,0 +1,391 @@
+html{
+   height: 100%;
+   text-align:center;
+}
+body{
+   margin: 0;
+   padding: 0;
+   height: 100%;
+}
+#one{
+height:100%;
+}
+#header{
+display:none;
+}
+#footer{
+left:0;
+width:100%;
+visibility:visible;
+z-index:999;
+overflow:hidden;
+}
+#dialog{
+visibility:hidden;
+}
+#intro{
+position:absolute;
+top:10%;
+}
+#myradio{
+  width: 18.9em;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: auto;
+}
+#multi-radio{
+  position: absolute;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto%;
+}
+#myflip{
+  visibility:hidden;
+}
+.ui-select{
+min-width:17em;
+}
+#myinput{
+  position: absolute;
+  width: 50%;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: 25%;
+}
+#multi-text{
+  position: absolute;
+  width: 93%;
+  margin-right: auto;
+  margin-bottom: 0;
+  margin-left: -8px;
+}
+#leftcell{
+position: relative;
+left:20%;
+ width: 30%; 
+}
+#rightcell{
+position: relative;
+left:20%;
+width: 60%;
+}
+#multi-select{
+  position: absolute;
+  margin-left: 20%;
+}
+#multi-select h3{
+  font-size: 25px;
+  color: black;
+}
+#multi-select select{
+  font-size:1.5em;
+  position: absolute;
+  margin-left: 0%;
+}
+#multi-select-time {
+  margin-left: -25%;
+}
+#multi-view{
+  position: absolute;
+  width: 500px;
+  margin-bottom: 0;
+  margin-left: 20%;
+}
+#multi{
+  position:relative;
+  width:100%;
+}
+#question{
+margin-left:10%;
+margin-right:10%;
+white-space:normal;
+}
+#popupLogin a {
+text-decoration:none;
+color:blue;
+}
+#select-view{
+position:absolute;
+margin-left:auto;
+}
+#Fullprogressbar{
+width:96%;
+}
+#Modprogressbar{
+width:96%;
+}
+#fullLabel{
+width:260px;
+}
+#modLabel{
+width:260px;
+}
+#modLabel p{
+margin-bottom: 7px;
+margin-top: 7px;
+}
+#Mod-bar{
+width:75%;
+}
+#Full-bar{
+width:75%;
+}
+a.ui-slider-handle.ui-btn.ui-shadow.ui-btn-corner-all.ui-btn-up-b{
+	display:none;
+}
+.boxed {
+background-color:white;
+}
+#popupBack{
+position:fixed;
+top:8%;
+}
+.buttonDisable {
+background:rgb(20,20,20) !important;
+}
+.textDisable {
+color:rgb(100,100,100) !important;
+}
+#topBars{
+position:relative;
+height:28px;
+}
+#botBars{
+position:relative;
+height:35px;
+}
+#footButtons{
+position:relative;
+height:50px;
+}
+#FAQcontent{
+}
+#popupFAQ{
+position:relative;
+bottom:280%;
+width:100%;
+min-width:85%;
+right:10%;
+}
+#closeFAQ{
+z-index:11111;
+}
+.ui-icon-closePopup {
+	background-image: url("../SHS_consent/closeIcon.png");
+}
+
+#radioLabel-a{
+height:80px;
+width:7.3em;
+}
+#radioLabel-b{
+height:80px;
+width:7.3em;
+left:3%;
+}
+#radio-text-a{
+position:relative;
+top:45%;
+font-size:2.9em;
+z-index:77777;
+}
+#radio-text-b{
+position:relative;
+top:45%;
+font-size:2.9em;
+z-index:77777;
+}
+#radio-text-a{
+height:350%;
+position:relative;
+top:10%;
+}
+#radio-text-b{
+height:350%;
+position:relative;
+top:10%;
+}
+#radioLabel-a > span:nth-child(1){
+height:88%;
+}
+#radioLabel-b > span:nth-child(1){
+height:88%;
+}
+#text-btn > span:nth-child(1) > span:nth-child(1){
+font-size:1.3em;
+}
+#time-choiceLabel-a > span:nth-child(1) > span:nth-child(1){
+position:relative;
+top:13%;
+font-size:2em;
+}
+#time-choiceLabel-a > span:nth-child(1){
+height:32px;
+}
+#time-choiceLabel-b > span:nth-child(1) > span:nth-child(1){
+position:relative;
+top:13%;
+font-size:2em;
+}
+#time-choiceLabel-b > span:nth-child(1){
+height:32px;
+}
+.selectClass{
+font-size:1.5em;
+}
+#multi-view .ui-btn-text{
+font-size:1.8em;
+}
+.finish{
+font-size:1.8em;
+}
+.radioClass{
+
+}
+.radioClassLabel{
+
+}
+.ui-radio-on > span:nth-child(1) > span:nth-child(1) > span:nth-child(1){
+height:90%;
+}
+.ui-radio-off > span:nth-child(1) > span:nth-child(1) > span:nth-child(1){
+height:90%;
+}
+#rightcell > div:nth-child(1) > fieldset:nth-child(1) > div:nth-child(1){
+width:10em;
+}
+input[type=checkbox]{
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height:1px; 
+  width:1px; 
+  margin:-1px; 
+  padding:0;
+  border:0;
+}
+#FAQdiv{
+display:none;
+}
+#mainPage2{
+width:7em
+}
+#mainPage3{
+width:7em
+}
+#landList{
+height:100%;
+overflow:hidden;
+}
+#FAQcontent{
+position:relative;
+top:70px;
+}
+.leaflet-popup-content{
+color:black;
+}
+#Contact{
+display:none;
+}
+#contactText{
+position:relative;
+top:100px;
+}
+ #landList li{
+	 height:25%;
+ }
+ .liDown{
+	 position:relative;
+ }
+ .boxed2{
+	 border-style:solid;
+	 border-width:1px;
+	 border-color:grey;
+ }
+#landingSurvey > h1:nth-child(1){
+	position:relative;
+	top:20%;
+}
+#landingFAQ > h1:nth-child(1){
+	position:relative;
+	top:22%;
+}
+#landingSurf > h1:nth-child(1){
+	position:relative;
+	top:24%;
+}
+#landingContact > h1:nth-child(1){
+	position:relative;
+	top:26%;
+}
+#popupInfo-screen{
+background-color:white !important;
+}
+#popupTip{
+background-color:white;
+border-radius: 5px 5px 5px 5px;
+-moz-border-radius: 5px 5px 5px 5px;
+-webkit-border-radius: 5px 5px 5px 5px;
+border: 1px solid #6dcaec;
+padding: 5px;
+color:black;
+margin-bottom: 100px !important;
+}
+#popupRestart{
+background-color:black;
+}
+.ui-body-b form .ui-btn, .ui-body-b form .ui-mini.ui-checkbox-off, .ui-body-b form .ui-mini.ui-radio-off{
+background-color:white !important;
+border-color:#6dcaec #6dcaec !important;
+}
+.ui-btn-inner, .ui-btn-up-b .ui-btn-text .ui-link-inherit{
+color:black !important;
+}
+.ui-footer.ui-fixed-hidden {
+position: fixed !important;
+}
+#map-canvas {
+height: 100%;
+margin: 0px;
+padding: 0px
+}
+#info-box {
+background-color: white;
+border: 1px solid black;
+bottom: 30px;
+height: 20px;
+padding: 10px;
+position: absolute;
+left: 30px;
+}
+span.tip {
+<<<<<<< HEAD
+	position: absolute;
+	bottom: 20px;
+	left: 0px;
+	display: block;
+	width: auto;
+	white-space: nowrap;
+	font-size: .9em;
+	border: 0px solid black; /* change as desired */
+	border-radius: 6px;
+	padding: 1px 5px;
+	background: #eee;
+	zoom: 1;
+	visibility: hidden;
+=======
+position: absolute;
+bottom: 20px;
+left: 0px;
+display: block;
+width: auto;
+white-space: nowrap;
+font-size: .9em;
+border: 0px solid black; /* change as desired */
+border-radius: 6px;
+padding: 1px 5px;
+background: #eee;
+zoom: 1;
+visibility: hidden;
+>>>>>>> 01c0beb4df3bd43867f29acbcdd83d7e43cd1971
+}

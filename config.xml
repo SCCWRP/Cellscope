@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.example.app" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <name>Cellscope</name>
+    <description>
+	Cellscope App
+    </description>
+    <author>
+        SCCWRP
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="fullscreen" value="false" />
+    <preference name="webviewbounce" value="true" />
+    <gap:plugin name="org.apache.cordova.file" version="1.0.1" />
+    <gap:plugin name="org.apache.cordova.file-transfer" version="0.4.2" />
+    <gap:plugin name="org.apache.cordova.camera" version="0.2.9" />
+    <gap:plugin name="com.megster.cordova.bluetoothserial" />
+    <gap:plugin name="org.apache.cordova.dialogs" version="0.2.6" />
+</widget>
