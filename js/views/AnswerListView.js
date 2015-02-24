@@ -232,27 +232,6 @@ var AnswerListView = Backbone.View.extend({
 		// next question  
 		var nextQuestion = (currentQuestion + 1);
 		var participant_type = this.model.get("q1");
-		if(currentQuestion == 2 && currentAnswer == "No"){
-			if(participant_type == "Boat Angler"){
-				nextQuestion += 1;	
-			}
-			if((participant_type == "Pier Angler") || (participant_type == "Shoreline Angler")){
-				nextQuestion += 2;	
-			}
-		}
-		if((currentQuestion == 3 && currentAnswer == "This month") || (currentQuestion == 3 && currentAnswer == "Within the last 3 months")){
-			alert("End Survey");
-			location.reload();
-		}
-		if((currentQuestion == 3 && currentAnswer == "Within the last 6 months") || (currentQuestion == 3 && currentAnswer == "More than 6 months ago")){
-				if((participant_type == "Pier Angler") || (participant_type == "Shoreline Angler")){
-					nextQuestion += 1;	
-				}
-		}
-		if(currentQuestion == 4 && currentAnswer == "No"){
-			alert("End Survey");
-			location.reload();
-		}
 		//if(currentQuestion == 2 && currentAnswer == "Yes"){
 		if(currentQuestion == 5 && currentAnswer == "Yes"){
 			var testUrl = "disabled";

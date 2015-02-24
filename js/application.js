@@ -252,6 +252,7 @@ var app = {
 		var fileName = currentTime + ".jpg";
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
+		alert(completeUrl);
 		t.set({ picture_url: completeUrl });
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 	          fileSystem = fs;
