@@ -247,7 +247,7 @@ var app = {
        	//image.src = imageURI;
 	var imgUrl;
 	function movePicture(picture){
-		alert(picture.fullPath);
+		//alert(picture.fullPath);
 		var currentDate = new Date();
 		var currentTime = currentDate.getTime();
 		var fileName = currentTime + ".jpg";
@@ -257,7 +257,7 @@ var app = {
 		t.save(null, {
 				success: function(model,response){
 					//alert("success saving url");
-					app.uploadFile(picture);
+					//app.uploadFile(picture);
 				},
 				error: function(model,response){
 					alert(response.status);
@@ -277,7 +277,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		alert("onSuccessMove:"+f.fullPath);
+		//alert("onSuccessMove:"+f.fullPath);
+		app.uploadFile(f.fullPath);
 		//alert(dirEntry+fileName);
 		app.showContent(f);
      	}
@@ -383,7 +384,36 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	alert(e);
+	//alert(e);
+	var fileURL = e;
+	function win(r){
+        	alert("Code = " + r.responseCode);
+	        alert("Response = " + r.response);
+	        alert("Sent = " + r.bytesSent);
+	}
+        function fail(error){
+	   	alert("An error has occurred: Code = " + error.code);
+	   	alert("upload error source " + error.source);
+	    	alert("upload error target " + error.target);
+	}
+	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
+	var options = new FileUploadOptions();
+	options.fileKey = "file";
+	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+	options.mimeType = "image/jpeg";
+
+ 	var headers={'headerParam':'headerValue'};
+        options.headers = headers;
+
+    	var ft = new FileTransfer();
+        	ft.onprogress = function(progressEvent){
+			if(progressEvent.lengthComputable){
+				  loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+		  	} else {
+				  loadingStatus.increment();
+		  	}
+	    	}
+	ft.upload(fileURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
