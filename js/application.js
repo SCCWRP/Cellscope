@@ -170,13 +170,13 @@ var app = {
 		}
   },
   saveLocalData: function(m){
-	//alert("saveLocalData");
+	alert("saveLocalData");
   	function fileAppend(fs){
-		//alert("fileAppend");
+		alert("fileAppend");
     		fs.createWriter(function(fileWriter) {
-			//alert("fs.createWriter");
+			alert("fs.createWriter");
 			fileWriter.onwrite = function(evt) {
-			    //alert("fileAppend wrote to file");
+			    alert("fileAppend wrote to file");
 		            app.showContent("fileAppend wrote to file");
 		        };
 			//go to the end of the file...
@@ -308,7 +308,7 @@ var app = {
 	fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
 		function(dirEntry) {
 			directoryLocation = dirEntry;
-			//alert(directoryLocation);
+			alert(directoryLocation);
 			////alert(SESSIONID);
 			timestampFile = ""+SESSIONID+".txt";
 			////alert(timestampFile);
@@ -326,8 +326,8 @@ var app = {
 					}, app.onError);
 				*/
 		}, app.onError);
-	//alert(fileSystem.name);
-	//app.showContent("Got file system");
+	alert(fileSystem.name);
+	app.showContent("Got file system");
   },
   getById: function(id){
 	return document.querySelector(id);
@@ -417,7 +417,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	ft.upload(myURL, uri, win, fail, options, true);
+	ft.upload(myURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
