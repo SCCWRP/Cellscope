@@ -401,6 +401,7 @@ var app = {
 	options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
 	options.mimeType = "image/jpeg";
+	options.chunkedMode = true;
 
  	var headers={'headerParam':'headerValue'};
         options.headers = headers;
@@ -416,7 +417,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	ft.upload(myURL, uri, win, fail, options);
+	ft.upload(myURL, uri, win, fail, options, true);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
