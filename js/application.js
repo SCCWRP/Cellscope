@@ -127,7 +127,7 @@ var app = {
   // file writing f=file,s=string
   fileAppend: function(f) {
     	alert("fileAppend");
-        alert(f.fullPath);
+        alert("f.fullPath: "+f.fullPath);
 	f.createWriter(function(writerOb) {
 		writerOb.onwrite=function() {
 	        	app.showContent("Done writing to file.<p/>");
@@ -342,7 +342,6 @@ var app = {
 					}, app.onError);
 				*/
 		}, app.onError);
-	alert(fileSystem.name);
 	app.showContent("Got file system");
 	fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
   },
@@ -400,7 +399,8 @@ var app = {
   },
   uploadFile: function(e) {
 	alert("uploadFile to SCCWRP");
-	var fileURL = "cdvfile://localhost/test.txt";
+	//var fileURL = "cdvfile://localhost/temporary/test.txt";
+	var fileURL = "/test.txt";
 	//var fileURL = "file://storage/sdcard0/test.txt";
     	function win(r){
         	alert("Code = " + r.responseCode);
