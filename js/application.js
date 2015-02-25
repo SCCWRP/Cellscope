@@ -252,20 +252,18 @@ var app = {
 		var fileName = currentTime + ".jpg";
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
-		alert(completeUrl);
-		/*
+		t.set({ picture_url: completeUrl });
 		t.model.save({ picture_url: completeUrl }, {
 				wait: false,
 				success: function(model,response){
 					alert("success saving url");
+					app.uploadFile(picture);
 				},
 				error: function(model,response){
 					alert(response.status);
 			       }
 		});
-		*/
-		t.set({ picture_url: completeUrl });
-		t.save();
+		//t.save();
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 	          fileSystem = fs;
 	          fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
@@ -279,6 +277,7 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
+		alert("onSuccessMove: "+f);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
@@ -358,8 +357,6 @@ var app = {
       	alert('Error: ' + msg);
   },
   submitRemote: function(s,t){
-     //alert("s:"+s);
-     //function rsubmit(s){
 	var url = 'http://data.sccwrp.org/sensor/load.php';
 	message = $.ajax({
 		type: 'GET',
@@ -383,8 +380,9 @@ var app = {
 			//alert("complete:"+data.key);
 	        }
     	});
-      //} 
-      //rsubmit(s);
+  },
+  uploadFile: function(e) {
+	alert(e);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
