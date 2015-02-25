@@ -383,8 +383,7 @@ var app = {
   },
   uploadFile: function(e) {
 	alert("e.fullPath: "+e.fullPath);
-	//alert("e.toURL: "+e.toURL());
-	//var test = e.toURL;
+	alert("e.toURL: "+e.toURL());
 	var fileURL = "file:///storage/sdcard0/test.txt";
 	function win(r){
         	alert("Code = " + r.responseCode);

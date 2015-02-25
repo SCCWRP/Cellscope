@@ -10,6 +10,7 @@ var StorageListView = Backbone.View.extend({
 		alert("gotFiles");
 		var s = "";
 		for(var i=0,len=entries.length; i<len; i++) {
+			alert("entries.fullPath: "+entries[i].fullPath);
 			s+= entries[i].fullPath;
 			if (entries[i].isFile) {
 	     			  s += " [F]";
