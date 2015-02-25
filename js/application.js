@@ -384,10 +384,10 @@ var app = {
   },
   uploadFile: function(e) {
 	//alert(e);
-	var fileURL = e;
-	alert("fileURL.fullPath"+ fileURL.fullPath);
+	var fileURL = e.fullPath;
+	alert("fileURL.fullPath"+ fileURL);
 	//var fileURLFullPath = e.fullPath;
-	alert("fileURL: "+fileURL);
+	//alert("fileURL: "+fileURL);
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -416,8 +416,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	//ft.upload(fileURL, uri, win, fail, options);
-	ft.upload(fileURL.fullPath, uri, win, fail, options);	
+	ft.upload(fileURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
