@@ -21,7 +21,7 @@ var IntroView = Backbone.View.extend({
 			/* turn last key into object */
      			var lastKey = JSON.parse(window.localStorage.getItem("http://data.sccwrp.org/sensor/index.php/surveys" + locateLastKey));
 			/* is current key null */
-			alert("lastKey: "+lastKey);
+			//alert("lastKey.sensor_id: "+lastKey.sensor_id);
 			if(lastKey.sensor_id){
 				if(isDevice){
 					/* get the id number from end of sensor_id and auto increment */
@@ -32,7 +32,7 @@ var IntroView = Backbone.View.extend({
 					var sensorID = SESSIONID + "-1";
 				}
 			} else {
-				alert("no sensor_id key");
+				//alert("no sensor_id key");
 			}
 		} else {
 			/* first time data is stored locally */
@@ -43,7 +43,7 @@ var IntroView = Backbone.View.extend({
 				var sensorID = SESSIONID + "-1";
 			}
 		}
-		alert(sensorID);
+		//alert(sensorID);
 		this.cleanup();
 		headerView = new HeaderView;
 		$("#home").show();
