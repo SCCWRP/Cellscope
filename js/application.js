@@ -385,7 +385,7 @@ var app = {
   uploadFile: function(e) {
 	//alert(e);
 	var fileURL = e;
-	var fileURLFullPath = e.fullPath;
+	//var fileURLFullPath = e.fullPath;
 	alert("fileURL: "+fileURL);
 	function win(r){
         	alert("Code = " + r.responseCode);
@@ -400,7 +400,7 @@ var app = {
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 	var options = new FileUploadOptions();
 	options.fileKey = "file";
-	options.fileName = fileURLFullPath.substr(fileURLFullPath.lastIndexOf('/')+1);
+	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
 	options.mimeType = "image/jpeg";
 
  	var headers={'headerParam':'headerValue'};
@@ -415,7 +415,7 @@ var app = {
 		  	}
 	    	}
 	//ft.upload(fileURL, uri, win, fail, options);
-	ft.upload(fileURL.toURL(), uri, win, fail, options);	
+	ft.upload(fileURL, uri, win, fail, options);	
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
