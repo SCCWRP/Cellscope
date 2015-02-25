@@ -384,7 +384,8 @@ var app = {
   uploadFile: function(e) {
 	alert("e.fullPath: "+e.fullPath);
 	alert("e.toURL: "+e.toURL());
-	var fileURL = "file:///storage/sdcard0/test.txt";
+	var fileURL = e.fullPath;
+	var dirURL = "cdvfile://localhost/temporary/org.sccwrp.sensor/";
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -404,6 +405,8 @@ var app = {
  	var headers={'headerParam':'headerValue'};
         options.headers = headers;
 
+	var myURL = dirURL + options.fileName;
+	alert("myURL: "+myURL);
     	var ft = new FileTransfer();
 		alert("FileTransfer");
         	ft.onprogress = function(progressEvent){
@@ -413,7 +416,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	ft.upload(fileURL, uri, win, fail, options);
+	ft.upload(myURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
