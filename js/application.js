@@ -330,7 +330,7 @@ var app = {
 			////alert(timestampFile);
 			dirEntry.getFile(timestampFile, {create:true}, 
 				function(f) {
-		         		app.showContent("directory and timestamp file created");
+		         		//app.showContent("directory and timestamp file created");
 				}, app.onError);
 				/*
 					f.createWriter(function(fileWriter){
@@ -342,7 +342,7 @@ var app = {
 					}, app.onError);
 				*/
 		}, app.onError);
-	app.showContent("Got file system");
+	//app.showContent("Got file system");
 	//fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
   },
   getById: function(id){
