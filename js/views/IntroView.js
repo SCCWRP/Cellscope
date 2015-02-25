@@ -21,6 +21,7 @@ var IntroView = Backbone.View.extend({
 			/* turn last key into object */
      			var lastKey = JSON.parse(window.localStorage.getItem("http://data.sccwrp.org/sensor/index.php/surveys" + locateLastKey));
 			/* is current key null */
+			alert("lastKey: "+lastKey);
 			if(lastKey.sensor_id){
 				if(isDevice){
 					/* get the id number from end of sensor_id and auto increment */
