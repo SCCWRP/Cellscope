@@ -408,6 +408,7 @@ var app = {
         options.headers = headers;
 
     	var ft = new FileTransfer();
+		alert("FileTransfer");
         	ft.onprogress = function(progressEvent){
 			if(progressEvent.lengthComputable){
 				  loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
@@ -416,7 +417,7 @@ var app = {
 		  	}
 	    	}
 	//ft.upload(fileURL, uri, win, fail, options);
-	ft.upload(fileURL, uri, win, fail, options);	
+	ft.upload(fileURL.toURL(), uri, win, fail, options);	
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
