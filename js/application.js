@@ -170,13 +170,13 @@ var app = {
 		}
   },
   saveLocalData: function(m){
-	alert("saveLocalData");
+	//alert("saveLocalData");
   	function fileAppend(fs){
 		//alert("fileAppend");
     		fs.createWriter(function(fileWriter) {
 			//alert("fs.createWriter");
 			fileWriter.onwrite = function(evt) {
-			    alert("fileAppend wrote to file");
+			    //alert("fileAppend wrote to file");
 		            app.showContent("fileAppend wrote to file");
 		        };
 			//go to the end of the file...
@@ -253,7 +253,16 @@ var app = {
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
 		alert(completeUrl);
-		t.set({ picture_url: completeUrl });
+		t.model.save({ picture_url: completeUrl }, {
+				wait: false,
+				success: function(model,response){
+					alert("success saving url");
+				},
+				error: function(model,response){
+					alert(response.status);
+			       }
+		});
+		//t.set({ picture_url: completeUrl });
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 	          fileSystem = fs;
 	          fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
