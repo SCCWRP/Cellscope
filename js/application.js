@@ -399,9 +399,12 @@ var app = {
   },
   uploadFile: function(e) {
 	alert("uploadFile to SCCWRP");
-	//var fileURL = "cdvfile://localhost/temporary/test.txt";
-	var fileURL = "cdvfile://localhost/persistent/test.txt";
-	//var fileURL = "file://storage/sdcard0/test.txt";
+	//var fileURL = "file://storage/sdcard0/test.txt"; old
+	//var fileURL = "cdvfile://localhost/persistent/test.txt"; new 
+	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
+	//var fileURL = "cdvfile://localhost/persistent/test.txt";
+	var fileURL = e.fullPath;
+	alert("fileURL: "+fileURL);
     	function win(r){
         	alert("Code = " + r.responseCode);
             	alert("Response = " + r.response);
@@ -417,7 +420,7 @@ var app = {
     	var options = new FileUploadOptions();
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-        options.mimeType = "text/plain";
+        options.mimeType = "image/jpeg";
 
 	var headers={'headerParam':'headerValue'};
 	options.headers = headers;
@@ -430,7 +433,8 @@ var app = {
 			  loadingStatus.increment();
 	 	}
 	}
-	ft.upload(fileURL, uri, win, fail, options);
+	finalURL = dirURL + options.fileName;
+	ft.upload(finalURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
