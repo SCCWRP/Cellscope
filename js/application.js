@@ -242,7 +242,7 @@ var app = {
         });
   },
   getCamera: function(callback,t){
-	alert("getCamera");
+	//alert("getCamera");
        	//var image = document.getElementById('myImage');
        	//image.src = imageURI;
 	var imgUrl;
@@ -255,7 +255,7 @@ var app = {
 		t.set({ picture_url: completeUrl });
 		t.save(null, {
 				success: function(model,response){
-					alert("success saving url");
+					//alert("success saving url");
 					app.uploadFile(picture);
 				},
 				error: function(model,response){
@@ -276,7 +276,7 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		alert("onSuccessMove: "+f);
+		alert("onSuccessMove:"+f);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
