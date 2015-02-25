@@ -126,8 +126,8 @@ var app = {
   },
   // file writing f=file,s=string
   fileAppend: function(f) {
-    	alert("fileAppend");
-        alert("f.fullPath: "+f.fullPath);
+    	//alert("fileAppend");
+        //alert("f.fullPath: "+f.fullPath);
 	f.createWriter(function(writerOb) {
 		writerOb.onwrite=function() {
 	        	app.showContent("Done writing to file.<p/>");
@@ -137,7 +137,7 @@ var app = {
 		//writerOb.write("Test at "+new Date().toString() + "\n");
 		var localSave = app.getLocalData("local","save");
 	        	writerOb.write(localSave);
-			alert("successfully wrote");
+			//alert("successfully wrote");
     		})
   },
   getLocalData: function(a,t){
@@ -343,7 +343,7 @@ var app = {
 				*/
 		}, app.onError);
 	app.showContent("Got file system");
-	fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
+	//fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
   },
   getById: function(id){
 	return document.querySelector(id);
@@ -398,13 +398,13 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	alert("uploadFile to SCCWRP");
+	//alert("uploadFile to SCCWRP");
 	//var fileURL = "file://storage/sdcard0/test.txt"; old
 	//var fileURL = "cdvfile://localhost/persistent/test.txt"; new 
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	//var fileURL = "cdvfile://localhost/persistent/test.txt";
 	var fileURL = e.fullPath;
-	alert("fileURL: "+fileURL);
+	//alert("fileURL: "+fileURL);
     	function win(r){
         	alert("Code = " + r.responseCode);
             	alert("Response = " + r.response);
@@ -428,9 +428,11 @@ var app = {
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
 		if(progressEvent.lengthComputable){
-			  loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+			  //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+			  var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+			  app.showContent(perc + "% loaded...");
 	  	} else {
-			  loadingStatus.increment();
+			  //loadingStatus.increment();
 	 	}
 	}
 	finalURL = dirURL + options.fileName;
