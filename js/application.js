@@ -385,6 +385,7 @@ var app = {
   uploadFile: function(e) {
 	//alert(e);
 	var fileURL = e;
+	alert(fileURL.fullPath);
 	//var fileURLFullPath = e.fullPath;
 	alert("fileURL: "+fileURL);
 	function win(r){
