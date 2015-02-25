@@ -277,9 +277,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		//alert("onSuccessMove:"+f.fullPath);
-		app.uploadFile(f.fullPath);
-		//alert(dirEntry+fileName);
+		//app.uploadFile(f.fullPath);
+		app.uploadFile(f);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
@@ -386,7 +385,8 @@ var app = {
   uploadFile: function(e) {
 	//alert(e);
 	var fileURL = e;
-	alert(fileURL);
+	var fileURLFullPath = e.fullPath;
+	alert("fileURL: "+fileURL);
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -400,8 +400,7 @@ var app = {
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 	var options = new FileUploadOptions();
 	options.fileKey = "file";
-	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-	alert(options.fileName);
+	options.fileName = fileURLFullPath.substr(fileURLFullPath.lastIndexOf('/')+1);
 	options.mimeType = "image/jpeg";
 
  	var headers={'headerParam':'headerValue'};
@@ -415,7 +414,8 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	ft.upload(fileURL, uri, win, fail, options);
+	//ft.upload(fileURL, uri, win, fail, options);
+	ft.upload(fileURL.toURL(), uri, win, fail, options);	
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
