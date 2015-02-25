@@ -384,7 +384,8 @@ var app = {
   uploadFile: function(e) {
 	alert("e.fullPath: "+e.fullPath);
 	//alert("e.toURL: "+e.toURL());
-	var test = e.toURL;
+	//var test = e.toURL;
+	var fileURL = "file:///storage/sdcard0/test.txt";
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -413,8 +414,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	alert("test: "+test);
-	ft.upload(test, uri, win, fail, options);
+	ft.upload(fileURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
