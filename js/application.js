@@ -170,13 +170,13 @@ var app = {
 		}
   },
   saveLocalData: function(m){
-	alert("saveLocalData");
+	//alert("saveLocalData");
   	function fileAppend(fs){
-		alert("fileAppend");
+		//alert("fileAppend");
     		fs.createWriter(function(fileWriter) {
-			alert("fs.createWriter");
+			//alert("fs.createWriter");
 			fileWriter.onwrite = function(evt) {
-			    alert("fileAppend wrote to file");
+			    //alert("fileAppend wrote to file");
 		            app.showContent("fileAppend wrote to file");
 		        };
 			//go to the end of the file...
@@ -276,6 +276,23 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
+		var win = function (r) {
+			    console.log("Code = " + r.responseCode);
+			        console.log("Response = " + r.response);
+				    console.log("Sent = " + r.bytesSent);
+		}
+
+		var fail = function (error) {
+			    alert("An error has occurred: Code = " + error.code);
+			        console.log("upload error source " + error.source);
+				    console.log("upload error target " + error.target);
+		}
+		var options = new FileUploadOptions();
+		options.fileKey = "file";
+		options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
+		options.mimeType = "text/plain";
+		var ft = new FileTransfer();
+		ft.upload(f, encodeURI("http://data.sccwrp.org/sensor/upload.php"), win, fail, options);
 		//app.uploadFile(f.fullPath);
 		app.uploadFile(f);
 		app.showContent(f);
@@ -382,10 +399,11 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	alert("e.fullPath: "+e.fullPath);
-	alert("e.toURL: "+e.toURL());
-	var fileURL = e.fullPath;
-	var dirURL = "cdvfile://localhost/temporary/org.sccwrp.sensor/";
+	//alert("e.fullPath: "+e.fullPath);
+	//alert("e.toURL: "+e.toURL());
+	//var fileURL = e.fullPath;
+	//var dirURL = "cdvfile://localhost/temporary/org.sccwrp.sensor/";
+	var fileURL = e.toURL();
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -406,8 +424,8 @@ var app = {
  	var headers={'headerParam':'headerValue'};
         options.headers = headers;
 
-	var myURL = dirURL + options.fileName;
-	alert("myURL: "+myURL);
+	//var myURL = dirURL + options.fileName;
+	//alert("myURL: "+myURL);
     	var ft = new FileTransfer();
 		alert("FileTransfer");
         	ft.onprogress = function(progressEvent){
@@ -417,7 +435,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
-	ft.upload(myURL, uri, win, fail, options);
+	ft.upload(fileURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
