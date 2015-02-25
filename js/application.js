@@ -247,6 +247,7 @@ var app = {
        	//image.src = imageURI;
 	var imgUrl;
 	function movePicture(picture){
+		alert(picture.fullPath);
 		var currentDate = new Date();
 		var currentTime = currentDate.getTime();
 		var fileName = currentTime + ".jpg";
@@ -276,7 +277,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		alert("onSuccessMove:"+f);
+		alert("onSuccessMove:"+f.fullPath);
+		//alert(dirEntry+fileName);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
