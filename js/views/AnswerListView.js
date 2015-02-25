@@ -237,6 +237,7 @@ var AnswerListView = Backbone.View.extend({
 			var testUrl = "disabled";
 			if(isDevice){
 				app.getCamera(function(imgUrl){ }, this.model);
+				alert(imgUrl);
 			} else {
 				this.model.set({ picture_url: testUrl });
 			}

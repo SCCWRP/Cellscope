@@ -253,6 +253,7 @@ var app = {
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
 		alert(completeUrl);
+		/*
 		t.model.save({ picture_url: completeUrl }, {
 				wait: false,
 				success: function(model,response){
@@ -262,7 +263,9 @@ var app = {
 					alert(response.status);
 			       }
 		});
-		//t.set({ picture_url: completeUrl });
+		*/
+		t.set({ picture_url: completeUrl });
+		t.save();
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 	          fileSystem = fs;
 	          fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
