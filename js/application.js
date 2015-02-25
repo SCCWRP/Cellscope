@@ -187,6 +187,10 @@ var app = {
         }
 	directoryLocation.getFile("survey.txt", {create:true}, fileAppend, app.onError);
   },
+  saveTestData: function(){
+       alert("saveTestData");
+	fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
+  },
   dataSyncCheck: function(da,dc,dt){
 	// send autoid and captureid to see if record is in remote database
 	//alert("dataSyncCheck autoid: "+ da);
@@ -399,42 +403,37 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	//alert("e.fullPath: "+e.fullPath);
-	//alert("e.toURL: "+e.toURL());
-	//var fileURL = e.fullPath;
-	//var dirURL = "cdvfile://localhost/temporary/org.sccwrp.sensor/";
-	var fileURL = e.toURL();
-	function win(r){
+	alert("uploadFile to SCCWRP");
+	var fileURL = "cdvfile://localhost/test.txt";
+	//var fileURL = "file://storage/sdcard0/test.txt";
+    	function win(r){
         	alert("Code = " + r.responseCode);
-	        alert("Response = " + r.response);
+            	alert("Response = " + r.response);
 	        alert("Sent = " + r.bytesSent);
 	}
         function fail(error){
-	   	alert("An error has occurred: Code = " + error.code);
-	   	alert("upload error source " + error.source);
-	    	alert("upload error target " + error.target);
+		alert("An error has occurred: Code = " + error.code);
+	    	alert("upload error source " + error.source);
+	   	alert("upload error target " + error.target);
 	}
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
-	var options = new FileUploadOptions();
-	options.fileKey = "file";
+
+    	var options = new FileUploadOptions();
+        options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-	options.mimeType = "image/jpeg";
-	options.chunkedMode = true;
+        options.mimeType = "text/plain";
 
- 	var headers={'headerParam':'headerValue'};
-        options.headers = headers;
+	var headers={'headerParam':'headerValue'};
+	options.headers = headers;
 
-	//var myURL = dirURL + options.fileName;
-	//alert("myURL: "+myURL);
-    	var ft = new FileTransfer();
-		alert("FileTransfer");
-        	ft.onprogress = function(progressEvent){
-			if(progressEvent.lengthComputable){
-				  loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-		  	} else {
-				  loadingStatus.increment();
-		  	}
-	    	}
+	var ft = new FileTransfer();
+	ft.onprogress = function(progressEvent){
+		if(progressEvent.lengthComputable){
+			  loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
+	  	} else {
+			  loadingStatus.increment();
+	 	}
+	}
 	ft.upload(fileURL, uri, win, fail, options);
   },
   onDeviceReady: function(){
@@ -473,6 +472,7 @@ var app = {
 				fieldDevice = (fieldDevices.indexOf(device.uuid)+1);
 			}
 		},true);
+		app.saveTestData();
 	} else {
 		app.onDeviceReady();
 	}
