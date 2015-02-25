@@ -386,6 +386,7 @@ var app = {
   uploadFile: function(e) {
 	//alert(e);
 	var fileURL = e;
+	alert(fileURL);
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -400,6 +401,7 @@ var app = {
 	var options = new FileUploadOptions();
 	options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+	alert(options.fileName);
 	options.mimeType = "image/jpeg";
 
  	var headers={'headerParam':'headerValue'};
