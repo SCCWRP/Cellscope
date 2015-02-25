@@ -124,6 +124,22 @@ var app = {
 		alert(message);
 	}
   },
+  // file writing f=file,s=string
+  fileAppend: function(f) {
+    	alert("fileAppend");
+        alert(f.fullPath);
+	f.createWriter(function(writerOb) {
+		writerOb.onwrite=function() {
+	        	app.showContent("Done writing to file.<p/>");
+		}
+		//go to the end of the file...
+		writerOb.seek(writerOb.length);
+		//writerOb.write("Test at "+new Date().toString() + "\n");
+		var localSave = app.getLocalData("local","save");
+	        	writerOb.write(localSave);
+			alert("successfully wrote");
+    		})
+  },
   getLocalData: function(a,t){
      		//alert("a: "+a);
      		//alert("t: "+t);
