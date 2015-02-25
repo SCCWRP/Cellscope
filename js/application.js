@@ -417,7 +417,7 @@ var app = {
 		  	}
 	    	}
 	//ft.upload(fileURL, uri, win, fail, options);
-	ft.upload(fileURL.toURL(), uri, win, fail, options);	
+	ft.upload(fileURL.fullPath, uri, win, fail, options);	
   },
   onDeviceReady: function(){
 	//window.requestFileSystem(window.TEMPORARY, 5*1024*1024 /*5MB*/, app.onFSSuccess, app.onError); // using chrome if mobile see below
