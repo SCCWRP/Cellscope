@@ -406,14 +406,14 @@ var app = {
 	var fileURL = e.fullPath;
 	//alert("fileURL: "+fileURL);
     	function win(r){
-        	alert("Code = " + r.responseCode);
-            	alert("Response = " + r.response);
-	        alert("Sent = " + r.bytesSent);
+        	//app.showContent("Code = " + r.responseCode);
+            	//app.showContent("Response = " + r.response);
+	        //app.showContent("Sent = " + r.bytesSent);
 	}
         function fail(error){
-		alert("An error has occurred: Code = " + error.code);
-	    	alert("upload error source " + error.source);
-	   	alert("upload error target " + error.target);
+		app.showContent("An error has occurred: Code = " + error.code);
+	    	app.showContent("upload error source " + error.source);
+	   	app.showContent("upload error target " + error.target);
 	}
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 
