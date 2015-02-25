@@ -277,8 +277,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		//app.uploadFile(f.fullPath);
-		app.uploadFile(f);
+		app.uploadFile(f.fullPath);
+		//app.uploadFile(f);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
@@ -383,7 +383,7 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	//alert(e);
+	alert("e: "+e);
 	var fileURL = e.fullPath;
 	alert("fileURL.fullPath"+ fileURL);
 	//var fileURLFullPath = e.fullPath;
