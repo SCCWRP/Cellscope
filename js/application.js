@@ -383,8 +383,8 @@ var app = {
   },
   uploadFile: function(e) {
 	alert("e.fullPath: "+e.fullPath);
-	alert("e.toURL: "+e.toURL());
-	var test = e.toURL();
+	//alert("e.toURL: "+e.toURL());
+	var test = e.toURL;
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
@@ -413,6 +413,7 @@ var app = {
 				  loadingStatus.increment();
 		  	}
 	    	}
+	alert("test: "+test);
 	ft.upload(test, uri, win, fail, options);
   },
   onDeviceReady: function(){
