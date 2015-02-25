@@ -203,10 +203,6 @@ var app = {
         }
 	directoryLocation.getFile("survey.txt", {create:true}, fileAppend, app.onError);
   },
-  saveTestData: function(){
-       alert("saveTestData");
-	fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
-  },
   dataSyncCheck: function(da,dc,dt){
 	// send autoid and captureid to see if record is in remote database
 	//alert("dataSyncCheck autoid: "+ da);
@@ -328,7 +324,7 @@ var app = {
 	fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
 		function(dirEntry) {
 			directoryLocation = dirEntry;
-			alert(directoryLocation);
+			//alert(directoryLocation);
 			////alert(SESSIONID);
 			timestampFile = ""+SESSIONID+".txt";
 			////alert(timestampFile);
@@ -348,6 +344,7 @@ var app = {
 		}, app.onError);
 	alert(fileSystem.name);
 	app.showContent("Got file system");
+	fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
   },
   getById: function(id){
 	return document.querySelector(id);
@@ -471,7 +468,6 @@ var app = {
 				fieldDevice = (fieldDevices.indexOf(device.uuid)+1);
 			}
 		},true);
-		app.saveTestData();
 	} else {
 		app.onDeviceReady();
 	}
