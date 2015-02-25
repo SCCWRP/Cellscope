@@ -253,8 +253,7 @@ var app = {
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
 		t.set({ picture_url: completeUrl });
-		t.model.save({ picture_url: completeUrl }, {
-				wait: false,
+		t.model.save(null, {
 				success: function(model,response){
 					alert("success saving url");
 					app.uploadFile(picture);
