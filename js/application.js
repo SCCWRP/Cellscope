@@ -257,7 +257,6 @@ var app = {
 		t.save(null, {
 				success: function(model,response){
 					//alert("success saving url");
-					//app.uploadFile(picture);
 				},
 				error: function(model,response){
 					alert(response.status);
@@ -277,8 +276,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		app.uploadFile(f.fullPath);
-		//app.uploadFile(f);
+		//app.uploadFile(f.fullPath);
+		app.uploadFile(f);
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
@@ -383,11 +382,8 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	alert("e: "+e);
-	var fileURL = e.fullPath;
-	alert("fileURL.fullPath"+ fileURL);
-	//var fileURLFullPath = e.fullPath;
-	//alert("fileURL: "+fileURL);
+	alert("e.fullPath: "+e.fullPath;
+	alert("e.toURL: "+e.toURL());
 	function win(r){
         	alert("Code = " + r.responseCode);
 	        alert("Response = " + r.response);
