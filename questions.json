@@ -46,7 +46,7 @@
 	"title": "What type of organisms are present?",
 	"action": "none",
       	"type": "select",
-      	"menu": "Select One,Test,Algae,Diatoms,Bugs",
+      	"menu": "Select One,Algae,Diatoms,Bugs",
         "other": "n",
 	"otype": "",
   	"answer": "",
@@ -57,7 +57,7 @@
       	"id": "4"
   },
   {
-	"title": "Submit Image",
+	"title": "Would you like to collect an image?",
 	"action": "none",
       	"type": "radio",
       	"menu": "Yes,No",
@@ -69,5 +69,19 @@
 	"errmessage": "",
       	"status": "incomplete",
       	"id": "5"
+  },
+  {
+	"title": "Collect data from MDS?",
+	"action": "none",
+      	"type": "radio",
+      	"menu": "Yes,No",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "6"
   }
 ]

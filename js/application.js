@@ -430,7 +430,7 @@ var app = {
 		if(progressEvent.lengthComputable){
 			  //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
 			  var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-			  app.showContent(perc + "% loaded...");
+			  app.showContent("Uploading file: "+ perc + "% loaded...");
 	  	} else {
 			  //loadingStatus.increment();
 	 	}
