@@ -71,7 +71,7 @@
       	"id": "5"
   },
   {
-	"title": "Collect data from MDS?",
+	"title": "End Survey?",
 	"action": "none",
       	"type": "radio",
       	"menu": "Yes,No",
