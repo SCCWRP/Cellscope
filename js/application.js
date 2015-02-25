@@ -400,7 +400,7 @@ var app = {
   uploadFile: function(e) {
 	alert("uploadFile to SCCWRP");
 	//var fileURL = "cdvfile://localhost/temporary/test.txt";
-	var fileURL = "/test.txt";
+	var fileURL = "cdvfile://test.txt";
 	//var fileURL = "file://storage/sdcard0/test.txt";
     	function win(r){
         	alert("Code = " + r.responseCode);
