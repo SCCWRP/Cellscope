@@ -9,7 +9,7 @@ var IntroView = Backbone.View.extend({
 		"click #getUtilities":"getUtilities"
 	},
     	getUtilities: function(){
-		$("#content").html( new UtilitiesView().render().el );
+		//$("#content").html( new UtilitiesView().render().el );
      	},
     	startSurvey: function(){
   		var prevStorage = window.localStorage.getItem("http://data.sccwrp.org/sensor/index.php/surveys");
@@ -67,19 +67,19 @@ var IntroView = Backbone.View.extend({
 		});
      	},
 	submitData: function(){
-		alert("submitData");
+		//alert("submitData");
 		appRouter.dirty();
     		var fileURL = "file:///storage/sdcard0/org.sccwrp.sensor/survey.txt";
     		function win(r){
-	    		alert(r);
-            		alert("Code = " + r.responseCode);
-            		alert("Response = " + r.response);
-            		alert("Sent = " + r.bytesSent);
+	    		//alert(r);
+            		//alert("Code = " + r.responseCode);
+            		//alert("Response = " + r.response);
+            		//alert("Sent = " + r.bytesSent);
     		}
     		function fail(error){
-    			alert("An error has occurred: Code = " + error.code);
-    			alert("upload error source " + error.source);
-    			alert("upload error target " + error.target);
+    			//alert("An error has occurred: Code = " + error.code);
+    			//alert("upload error source " + error.source);
+    			//alert("upload error target " + error.target);
     		}
 
     		var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
