@@ -40,10 +40,11 @@ height:100%;
 overflow:hidden;
 }
  #landList li{
-	 height:33%;
+	 height:100%;
  }
  #landList .ui-btn-text{
-	 font-size: 40px;
+	 margin-top: 20%;
+	 font-size: 60px;
  }
  #footButtons .ui-btn-text{
 	 font-size: 40px;

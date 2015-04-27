@@ -1,17 +1,17 @@
 [
   {
-	"title": "Select StationID",
+	"title": "Enter Station",
 	"action": "none",
-      	"type": "select",
-      	"menu": "Select One,2009,2010,3000,3015",
+      	"type": "text",
+      	"menu": "",
         "other": "n",
 	"otype": "",
-	"check": "select",
   	"answer": "",
 	"decline": "no",
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placeholder": "Enter Station Number",
       	"id": "1"
   },
   {
