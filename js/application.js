@@ -288,7 +288,7 @@ var app = {
         }
 	// ios bug
      	//navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
-     	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI });
+     	navigator.camera.getPicture(onSuccess, onFail, { quality: 10, destinationType: Camera.DestinationType.DATA_URI });
   },
   getGPSOnSuccess: function(position){
 	latlon = position.coords.latitude + "," + position.coords.longitude
