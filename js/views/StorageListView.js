@@ -20,7 +20,7 @@ var StorageListView = Backbone.View.extend({
 	 		s += "<br/>";
 	     	}
 	        s+="<p/>";
-		alert("showContent render here: "+s);
+		//alert("showContent render here: "+s);
 	        //app.showContent(s);
 	},
 	render: function(){

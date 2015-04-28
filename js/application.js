@@ -387,6 +387,7 @@ var app = {
 		app.showContent("An error has occurred: Code = " + error.code);
 	    	app.showContent("upload error source " + error.source);
 	   	app.showContent("upload error target " + error.target);
+		ft.upload(finalURL, uri, win, fail, options);
 	}
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 
