@@ -391,17 +391,15 @@ var app = {
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 
     	var options = new FileUploadOptions();
-	//added for bug
-	options.chunkedMode = false;
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
-
+	options.chunkedMode = false;
 	//var headers={'headerParam':'headerValue'};
 	//options.headers = headers;
 	options.headers = {
 		Connection: "close"
-	}
+	};
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
