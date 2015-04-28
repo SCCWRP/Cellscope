@@ -22,20 +22,18 @@ var appRouter = new (Backbone.Router.extend({
 	    //$(window).scroll(appRouter.positionFooter).resize(appRouter.positionFooter); - issues with iphone
   },
   dirty: function(){
-	//alert("dirty");
         var dirtyKeys = window.localStorage.getItem("http://data.sccwrp.org/sensor/index.php/surveys_dirty");
-	//alert(dirtyKeys);
         if (dirtyKeys != null){
 		answerList = new AnswerList();
 		var servicesSync = answerList.fetch({ 
         	  success: function (response) {
-			console.log(response);
+			app.showContent(response);
 	        	answerList.syncDirtyAndDestroyed();    
 	          },
 	    	  error: function(model,response){
-			console.log(response.responseText);
-			console.log(response.status);
-			console.log(response.statusText);
+			app.showContent(response.responseText);
+			app.showContent(response.status);
+			app.showContent(response.statusText);
 		  }
 
         	});
@@ -186,14 +184,12 @@ var app = {
 		}
   },
   saveLocalData: function(m){
-	//alert("saveLocalData");
   	function fileAppend(fs){
-		//alert("fileAppend");
     		fs.createWriter(function(fileWriter) {
-			//alert("fs.createWriter");
 			fileWriter.onwrite = function(evt) {
-			    //alert("fileAppend wrote to file");
-		            app.showContent("fileAppend wrote to file");
+			    alert("End Survey");
+			    appRouter.navigate('/', {trigger: false});
+			    location.assign(HOME);
 		        };
 			//go to the end of the file...
 			fileWriter.seek(fileWriter.length);
@@ -201,7 +197,8 @@ var app = {
 			fileWriter.write(blob);
     		}, app.onError);
         }
-	directoryLocation.getFile("survey.txt", {create:true}, fileAppend, app.onError);
+	//directoryLocation.getFile("survey.txt", {create:true}, fileAppend, app.onError);
+	directoryLocation.getFile(timestampFile, {create:true}, fileAppend, app.onError);
   },
   dataSyncCheck: function(da,dc,dt){
 	// send autoid and captureid to see if record is in remote database
@@ -258,30 +255,17 @@ var app = {
         });
   },
   getCamera: function(callback,t){
-	//alert("getCamera");
-       	//var image = document.getElementById('myImage');
-       	//image.src = imageURI;
 	var imgUrl;
 	function movePicture(picture){
-		//alert(picture.fullPath);
 		var currentDate = new Date();
 		var currentTime = currentDate.getTime();
 		var fileName = currentTime + ".jpg";
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
 		t.set({ picture_url: completeUrl });
-		t.save(null, {
-				success: function(model,response){
-					//alert("success saving url");
-				},
-				error: function(model,response){
-					alert(response.status);
-			       }
-		});
-		//t.save();
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
-	          fileSystem = fs;
-	          fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
+			fileSystem = fs;
+			fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
 			function(dirEntry) {
 				picture.moveTo(dirEntry, fileName, onSuccessMove, app.onError);
 			}, app.onError);
@@ -292,8 +276,8 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		//app.uploadFile(f.fullPath);
-		app.uploadFile(f);
+		alert("Successfully saved picture.");
+		savedPicture = true;
 		app.showContent(f);
      	}
     	function onSuccess(imageURI){
@@ -305,45 +289,32 @@ var app = {
      	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
   },
   getGPSOnSuccess: function(position){
-	//alert("getGPSOnSuccess");
 	latlon = position.coords.latitude + "," + position.coords.longitude
   },
   getGPSOnFailure: function(error){
-	//alert("getGPSOnFailure");
 	latlon = "failed";
   },
   getId: function(id) {
     return document.querySelector(id);
   },
-  showContent: function(s) {
-    $("#log").html(s);
+  showContent: function(s,t) {
+    if(t){	
+       	$("#log").append(s);
+    } else {
+    	$("#log").html(s);
+    }	
   },
   onFSSuccess: function(fs){
-	//alert("onFSSuccess");
 	fileSystem = fs;
 	fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
 		function(dirEntry) {
 			directoryLocation = dirEntry;
-			//alert(directoryLocation);
-			////alert(SESSIONID);
 			timestampFile = ""+SESSIONID+".txt";
-			////alert(timestampFile);
 			dirEntry.getFile(timestampFile, {create:true}, 
 				function(f) {
-		         		//app.showContent("directory and timestamp file created");
+		         		app.showContent("directory and timestamp file created");
 				}, app.onError);
-				/*
-					f.createWriter(function(fileWriter){
-						alert("fs.createWriter");
-						fileWriter.onwrite = function(evt) {
-		            				app.showContent("write to file");
-		        			};
-						fileWriter.write("my data");
-					}, app.onError);
-				*/
 		}, app.onError);
-	//app.showContent("Got file system");
-	//fileSystem.root.getFile("test.txt", {create:true}, app.fileAppend, app.onError);
   },
   getById: function(id){
 	return document.querySelector(id);

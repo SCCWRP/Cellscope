@@ -8,7 +8,7 @@ var QuestionListView = Backbone.View.extend({
 		} else {
 			var rawTitle = this.model.get("title");
 		}
-		console.log(rawTitle);
+		//console.log(rawTitle);
 		$(this.el).html(this.template({"title": rawTitle}));	
 	}
 });

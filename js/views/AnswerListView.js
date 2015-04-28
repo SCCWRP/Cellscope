@@ -2,7 +2,7 @@ var AnswerListView = Backbone.View.extend({
 	//el: '#content',
 	template:_.template($('#tpl-answer-details').html()),
 	initialize: function(){
-		console.log("AnswerListView");
+		//console.log("AnswerListView");
 		//Start idle counter
 		var that = this;
 		$(document).ready(function () {
@@ -270,25 +270,18 @@ var AnswerListView = Backbone.View.extend({
 					if(timer == 4){
 						// save data to sd drive
 						if(isDevice){
-							//alert(parsedJSON);
 							app.saveLocalData(parsedJSON);
+						} else {
+							// clear stage and events
+							that.cleanup();
+							alert("End Survey");
+							appRouter.navigate('/', {trigger: false});
+							location.assign(HOME);
 						}
-						// clear stage and events
-						that.cleanup();
-						// return receipt from database
-						// check for ie9 or less - no receipt
-						var ie = (function(){ 
-							var undef, v = 3, div = document.createElement('div'), all = div.getElementsByTagName('i');				 
-							while ( div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->', all[0]);
-						       	return v > 4 ? v : undef;
-					       	}());
-						alert("End Survey");
-						appRouter.navigate('/', {trigger: false});
-						location.assign(HOME);
 					}
 				},
 				error: function(model,response){
-				  console.log(response.status);
+				  //console.log(response.status);
        				}
 			});
 		$("body").css("background-color", "white");
