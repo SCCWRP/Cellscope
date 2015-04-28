@@ -285,50 +285,8 @@
 		<%= "<script" + ">" + propagate2 +  "</script" + ">" %>
 	  <% } else if ((type) == "text"){  %>
 	  <div class="ui-field-contain">
-		<!--
-		<h3>Text Question - <%= qcount %> - <%= type %></h3>
-         	<label>User ID:</label>
-        	<label>Record ID:</label>
-        	<input type="text" id="rid" name="rid" value="<%= id %>" disabled />
-        	<label>Question ID:</label>
-        	<input type="text" id="qid" name="qid" value="<%= qcount %>" disabled />
-        	<label>Answer</label>
-		// -->
-		<input type="text" id="aid" name="aid" class="text-view" placeholder= <%= placeholder %> value="" required/>
-		<!-- <button id="save" class="save">Save</button> // -->
-		<% if(decline == "yes") { %>
-			<button id="decline" class="decline">Decline and save</button>
-			<% }; %>
-    	    </div>
-	  <% } else if (type == "sevenday"){  %>
-	  	<!-- 
-         	<label>User ID:</label>
-          	<label>Record ID:</label>
-          	<input type="text" id="rid" name="rid" value="<%= id %>" disabled />
-          	<label>Question ID:</label>
-          	<input type="text" id="qid" name="qid" value="<%= qcount %>" disabled />
-          	<label>Answer</label>
-		// -->
-		<div id="multi-view">
-		  <div class="ui-field-contain" data-inset="true">
-			<fieldset data-role="controlgroup" id="aid">
-			<% today = new Date; %>
-			<% days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
-			<% days = days.slice(0, today.getDay() + 1 ).reverse().concat(days.slice(today.getDay() + 1, 7).reverse()); %>
-			<% days[0] = "Today";	 %>
-			<% for(i=0; i < 7; i++) { %>
-			<% newday = new Date(new Date().setDate(new Date().getDate()-i)); %> 
-			<input type="checkbox" class="custom" value= <%= (newday.getMonth()+1) + "/" + (newday.getDate()) + "/" + (newday.getYear() + 1900)  %>  name = <%= days[i] %>  id= <%= days[i] %> />
-			<label for= <%= days[i] %> >  <%= days[i] %> </label> 
-	 		<% }; %>
-			<% if(qcount == "26" && decline == "yes") { %>
-			<!-- <input type="button"  name="decline" id="decline" class="decline">Did not Enter</input> // -->
-				<input type="checkbox" class="decline" value="decline" name="decline" id="decline" />
-				<label for="decline" class="decline">Did not Enter</label> 
-			<% }; %>
-			</fieldset>
-		  </div>
-		</div>
+		  <input type= <%= placetype %> id="aid" name="aid" class="text-view" placeholder= <%= placeholder %> value="" required/>
+    	  </div>
 	  <% } %>
 	</script>
 	<script src="js/globals.js"></script>

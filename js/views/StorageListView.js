@@ -3,8 +3,11 @@ var StorageListView = Backbone.View.extend({
 	template:_.template($('#tpl-storage-list-details').html()),
 	initialize: function(){
 		alert("initialize StorageListView");
-	 	var dirReader = fileSystem.root.createReader();
-		dirReader.readEntries(this.gotFiles,app.onError);        
+		fileSystem.root.getDirectory('org.sccwrp.sensor', {create: false},
+			function(dirEntry) {
+				var dirReader = dirEntry.createReader();
+				dirReader.readEntries(this.gotFiles,app.onError);
+			}, app.onError);
 	},
    	gotFiles: function(entries) { 
 		alert("gotFiles");

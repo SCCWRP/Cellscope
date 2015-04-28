@@ -12,13 +12,14 @@
 	"errmessage": "",
       	"status": "incomplete",
 	"placeholder": "Enter Station Number",
+	"placetype": "number",
       	"id": "1"
   },
   {
-	"title": "What is the channel type?",
+	"title": "Please provide Date/Time?",
 	"action": "none",
-      	"type": "radio",
-      	"menu": "Natural,Engineered",
+      	"type": "text",
+      	"menu": "",
         "other": "n",
 	"otype": "",
   	"answer": "",
@@ -26,13 +27,15 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placeholder": "",
+	"placetype": "datetime-local",
       	"id": "2"
   },
   {
-	"title": "What is the flow?",
+	"title": "Any other pertinent physical/chemical information?",
 	"action": "none",
-      	"type": "radio",
-      	"menu": "Perennial,Annual",
+      	"type": "text",
+      	"menu": "",
         "other": "n",
 	"otype": "",
   	"answer": "",
@@ -40,13 +43,14 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placetype": "text",
       	"id": "3"
   },
   {
-	"title": "What type of organisms are present?",
+	"title": "Notes",
 	"action": "none",
-      	"type": "select",
-      	"menu": "Select One,Algae,Diatoms,Bugs",
+      	"type": "text",
+      	"menu": "",
         "other": "n",
 	"otype": "",
   	"answer": "",
@@ -54,6 +58,7 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placetype": "text",
       	"id": "4"
   },
   {

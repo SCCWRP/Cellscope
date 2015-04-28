@@ -112,6 +112,7 @@ var AnswerListView = Backbone.View.extend({
 				'menu': fixMenu,
 				'type': gotQuestion.attributes.type,
 				'placeholder': gotQuestion.attributes.placeholder,
+				'placetype': gotQuestion.attributes.placetype,
 				'decline': gotQuestion.attributes.decline});
 			questionListView = new QuestionListView({model: gotQuestion});
 			questionListView.render();
