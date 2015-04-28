@@ -393,7 +393,8 @@ var app = {
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
 
-	var headers={'headerParam':'headerValue'};
+	// 'Connection': 'close' added as bug fix for ios upload
+	var headers={'headerParam':'headerValue','Connection': 'close'};
 	options.headers = headers;
 
 	var ft = new FileTransfer();
