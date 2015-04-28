@@ -397,8 +397,11 @@ var app = {
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
 
-	var headers={'headerParam':'headerValue'};
-	options.headers = headers;
+	//var headers={'headerParam':'headerValue'};
+	//options.headers = headers;
+	options.headers = {
+		Connection: "close"
+	}
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
