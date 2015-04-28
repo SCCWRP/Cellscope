@@ -9,7 +9,7 @@ var IntroView = Backbone.View.extend({
 		"click #getUtilities":"getUtilities"
 	},
     	getUtilities: function(){
-		//$("#content").html( new UtilitiesView().render().el );
+		$("#content").html( new UtilitiesView().render().el );
      	},
     	startSurvey: function(){
   		var prevStorage = window.localStorage.getItem("http://data.sccwrp.org/sensor/index.php/surveys");
