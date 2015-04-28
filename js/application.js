@@ -394,12 +394,13 @@ var app = {
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
-	//options.chunkedMode = false;
-	//options.headers = {
-		//Connection: "close"
-	//}
-	var headers={'headerParam':'headerValue'};
-	options.headers = headers;
+	//var headers={'headerParam':'headerValue'};
+	//options.headers = headers;
+	options.params = {}; // if we need to send parameters to the server request 
+	options.headers = {
+		Connection: "Close"
+	};
+	options.chunkedMode = false;
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
