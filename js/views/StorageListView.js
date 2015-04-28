@@ -7,7 +7,7 @@ var StorageListView = Backbone.View.extend({
 			function(dirEntry) {
 				alert("getDirectory org.sccwrp.sensor");
 				var dirReader = dirEntry.createReader();
-				dirReader.readEntries(gotFiles,app.onError);
+				dirReader.readEntries(this.gotFiles,app.onError);
 			}, app.onError);
 	},
    	gotFiles: function(entries) { 
