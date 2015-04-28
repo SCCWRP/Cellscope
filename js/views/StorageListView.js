@@ -7,7 +7,20 @@ var StorageListView = Backbone.View.extend({
 			function(dirEntry) {
 				alert("getDirectory org.sccwrp.sensor");
 				var dirReader = dirEntry.createReader();
-				dirReader.readEntries(this.gotFiles,app.onError);
+				dirReader.readEntries(
+					function(entries){
+						alert("readEntries");
+						for(var i=0,len=entries.length; i<len; i++) {
+							alert("entries.fullPath: "+entries[i].fullPath);
+							s+= entries[i].fullPath;
+							if (entries[i].isFile) {
+	     			  				s += " [F]";
+		  					} else {
+		  		  				s += " [D]";
+		  					}
+	 						s += "<br/>";
+	     					}
+					},app.onError);
 			}, app.onError);
 	},
    	gotFiles: function(entries) { 
