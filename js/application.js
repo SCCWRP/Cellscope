@@ -389,12 +389,13 @@ var app = {
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 
     	var options = new FileUploadOptions();
+	//added for bug
+	options.chunkedMode = false;
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
 
-	// 'Connection': 'close' added as bug fix for ios upload
-	var headers={'headerParam':'headerValue','Connection': 'close'};
+	var headers={'headerParam':'headerValue'};
 	options.headers = headers;
 
 	var ft = new FileTransfer();
