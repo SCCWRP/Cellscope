@@ -395,10 +395,10 @@ var app = {
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
-	options.chunkedMode = false;
-	options.headers = {
-		Connection: "close"
-	}
+	//options.chunkedMode = false;
+	//options.headers = {
+		//Connection: "close"
+	//}
 	//var headers={'headerParam':'headerValue'};
 	//options.headers = headers;
 
