@@ -391,7 +391,6 @@ var app = {
 	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
 
     	var options = new FileUploadOptions();
-	options.chunkedMode = false;
         options.fileKey = "file";
 	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
         options.mimeType = "image/jpeg";
@@ -399,8 +398,8 @@ var app = {
 	//options.headers = {
 		//Connection: "close"
 	//}
-	//var headers={'headerParam':'headerValue'};
-	//options.headers = headers;
+	var headers={'headerParam':'headerValue'};
+	options.headers = headers;
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
