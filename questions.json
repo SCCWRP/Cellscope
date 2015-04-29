@@ -34,7 +34,7 @@
   {
 	"title": "Any other pertinent physical/chemical information?",
 	"action": "none",
-      	"type": "text",
+      	"type": "multitext",
       	"menu": "",
         "other": "n",
 	"otype": "",
@@ -43,7 +43,6 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
-	"placeholder": "Salinity,DO, or chlorophyll flurescence",
 	"placetype": "text",
       	"id": "3"
   },

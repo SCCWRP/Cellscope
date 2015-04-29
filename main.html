@@ -283,6 +283,12 @@
 		<% var propagate2 = "$('[name=exit0]').on('change', function() {$('.exit').not('[name=exit0]').each(function () {$(this).val($('[name=exit0]').val());$(this).trigger('change');})});" %>
 		<%= "<script" + ">" + propagate1 +  "</script" + ">" %>
 		<%= "<script" + ">" + propagate2 +  "</script" + ">" %>
+	  <% } else if ((type) == "multitext"){  %>
+	  <div id="aid" class="ui-field-contain">
+		  <input type="<%= placetype %>" name="mid" class="text-view" placeholder="Salinity" value="" required/>
+		  <input type="<%= placetype %>" name="mid" class="text-view" placeholder="DO" value="" required/>
+		  <input type="<%= placetype %>" name="mid" class="text-view" placeholder="Chlorophyll flurescence" value="" required/>
+    	  </div>
 	  <% } else if ((type) == "text"){  %>
 	  <div class="ui-field-contain">
 		  <input type="<%= placetype %>" id="aid" name="aid" class="text-view" placeholder="<%= placeholder %>" value="" required/>

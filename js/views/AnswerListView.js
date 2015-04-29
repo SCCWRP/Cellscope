@@ -163,6 +163,7 @@ var AnswerListView = Backbone.View.extend({
 				"text":"#aid",
 				"select":"#aid",
 				"multi":"#aid input[type = 'checkbox']:checked",
+				"multitext":"#aid input[name=mid]",
 				"sevenday":"#aid input[type = 'checkbox']:checked",
 				"numberSelect":"#aid",
 				"dateSelect":"[id=aid]",
@@ -170,7 +171,7 @@ var AnswerListView = Backbone.View.extend({
 	},
 	extractAnswer: function () {
 		var currentAnswer = $(this.selectorString[formtype]); 
-		if(formtype == "multi" || formtype == "sevenday") {
+		if(formtype == "multi" || formtype == "multitext" || formtype == "sevenday") {
 			var temparray = [];
 			currentAnswer.map(function () { temparray.push(this.value); });
 			currentAnswer = temparray.join();
