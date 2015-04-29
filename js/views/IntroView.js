@@ -49,7 +49,7 @@ var IntroView = Backbone.View.extend({
 		$("#home").show();
 		footerView = new FooterView;
 		/* set version */
-		var deviceType = navigator.userAgent + "-v.0.0.1";
+		var deviceType = navigator.userAgent + "-sensor-v1.0.0";
 		/* get last id */
 	     	var questionList = new QuestionList();
 		answerList = new AnswerList();

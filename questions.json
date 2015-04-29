@@ -11,7 +11,7 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
-	"placeholder": "Enter Station Number",
+	"placeholder": "Enter station number",
 	"placetype": "number",
       	"id": "1"
   },
@@ -43,6 +43,7 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placeholder": "Salinity,DO, or chlorophyll flurescence",
 	"placetype": "text",
       	"id": "3"
   },
@@ -58,6 +59,7 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
+	"placeholder": "Site or condition information",
 	"placetype": "text",
       	"id": "4"
   },
