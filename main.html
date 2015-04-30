@@ -285,13 +285,14 @@
 		<%= "<script" + ">" + propagate2 +  "</script" + ">" %>
 	  <% } else if ((type) == "multitext"){  %>
 	  <div id="aid" class="ui-field-contain">
-		  <input type="number" name="mid" class="text-view" placeholder="Salinity" value="" required/>
-		  <input type="number" name="mid" class="text-view" placeholder="DO" value="" required/>
-		  <input type="number" name="mid" class="text-view" placeholder="Chlorophyll flurescence" value="" required/>
+		  <input type="number" name="mid" class="text-view" placeholder="Temperature" value="" />
+		  <input type="number" name="mid" class="text-view" placeholder="Salinity" value="" />
+		  <input type="number" name="mid" class="text-view" placeholder="DO" value="" />
+		  <input type="number" name="mid" class="text-view" placeholder="Chlorophyll flurescence" value="" />
     	  </div>
 	  <% } else if ((type) == "text"){  %>
 	  <div class="ui-field-contain">
-		  <input type="<%= placetype %>" id="aid" name="aid" class="text-view" placeholder="<%= placeholder %>" value="" required/>
+		  <input type="<%= placetype %>" id="aid" name="aid" class="text-view" placeholder="<%= placeholder %>" value="" />
     	  </div>
 	  <% } %>
 	</script>

@@ -371,7 +371,7 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	//alert("uploadFile to SCCWRP");
+	alert("application.js uploadFile");
 	//var fileURL = "file://storage/sdcard0/test.txt"; old
 	//var fileURL = "cdvfile://localhost/persistent/test.txt"; new 
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";

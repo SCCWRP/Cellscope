@@ -103,11 +103,7 @@ var AnswerListView = Backbone.View.extend({
 		questionList.fetch({success: getQuestion,error: errorQuestion});
 		function getQuestion(){
 			gotQuestion = questionList.get(nextQcount);
-			if(language == "Spanish"){
-				var fixMenu = gotQuestion.attributes.smenu.split(",")
-			} else {
-				var fixMenu = gotQuestion.attributes.menu.split(",")
-			}
+			var fixMenu = gotQuestion.attributes.menu.split(",")
 			t.set({	'title': gotQuestion.attributes.title,
 				'menu': fixMenu,
 				'type': gotQuestion.attributes.type,

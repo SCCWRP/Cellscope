@@ -69,7 +69,7 @@ var IntroView = Backbone.View.extend({
 	submitData: function(){
 		$(this.el).html("");
 		$("#header").show();
-		$("#header").html('<a href="./index.html" id="home" data-role="button" class="ui-btn ui-icon-home">Home</a>');
+		$("#header").html('<a href="./index.html" id="home" data-role="button" class="ui-btn ui-icon-home">Home</a><div id="special"></div>');
 		$("#home").show();
 		/* synchronize local browser storage records */
 		appRouter.dirty();
@@ -111,7 +111,7 @@ var IntroView = Backbone.View.extend({
 			ft.onprogress = function(progressEvent){
 				if (progressEvent.lengthComputable) {
 					var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-					app.showContent("uploading file: "+ perc + "% loaded...",true);
+					$("#special").html("uploading file: "+ perc + "% loaded...");
 				} else {
 				}
 			}

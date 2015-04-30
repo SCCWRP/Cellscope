@@ -16,6 +16,7 @@ var QuestionList = Backbone.Collection.extend({
     			"calzip": function (q) {if(q && (parseInt(q) > 96162 || parseInt(q) < 90001 && parseInt(q) != 99999)) return "Only California Zip codes may be entered";},
   			"phoneval": function (q) {if(q && !phonepattern.test(q)){ return "Invalid phone number";}},
     			"emailval": function (q) {if(q && !emailpattern.test(q)) return "Invalid email";}, 
+			"99": function(q) { return; },
 			"0": function(q) {if(q == "") return "A response is required before continuing";},
 			"select": function(q) {if(q && q == "Select One") return "A response is required before continuing";},
 			"1": function(q) {if(q && q.length < 2) return "Invalid phone number";}, 
@@ -38,8 +39,10 @@ var QuestionList = Backbone.Collection.extend({
 		var createValidation = function (questions){
 		  for(i=0; i< MAXQUESTION; i++) {
 			var thismod =  that.models[i].attributes; 
+			/* removed code below it assumes that if the question has no check attribute that we still need to check for empty field */
 			if(!thismod.hasOwnProperty("check")) {
-				thismod["check"] = "0";
+				//thismod["check"] = "0";
+				thismod["check"] = "99";
 			};
 			var codes = thismod.check.split(",");
 			valLU["q" + (i+1)] = codes.map(function(c) {

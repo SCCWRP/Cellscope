@@ -13,6 +13,7 @@
       	"status": "incomplete",
 	"placeholder": "Enter station number",
 	"placetype": "number",
+	"check": "0",
       	"id": "1"
   },
   {
@@ -54,7 +55,7 @@
         "other": "n",
 	"otype": "",
   	"answer": "",
-	"decline": "no",
+	"decline": "",
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
