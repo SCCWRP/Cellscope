@@ -69,7 +69,7 @@ var IntroView = Backbone.View.extend({
 	submitData: function(){
 		$(this.el).html("");
 		$("#header").show();
-		$("#header").html('<a href="./index.html" id="home" data-role="button" class="ui-btn ui-icon-home">Home</a><div id="special"></div>');
+		$("#header").html('<a href="./index.html" id="home" data-role="button" class="ui-btn ui-icon-home">Home</a><div id="header_log"></div>');
 		$("#home").show();
 		/* synchronize local browser storage records */
 		appRouter.dirty();
@@ -91,7 +91,8 @@ var IntroView = Backbone.View.extend({
 			var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 			var fileURL = f.fullPath;
 		    	function win(r){
-				app.showContent("file uploaded - "+f.name,true);
+				// create checkbox of files uploaded
+				app.showContent("Finished file: "+f.name+"<br>",true);
 		    	}
 		    	function fail(error){
 				app.showContent("An error has occurred: Code = " + error.code,true);
@@ -111,13 +112,15 @@ var IntroView = Backbone.View.extend({
 			ft.onprogress = function(progressEvent){
 				if (progressEvent.lengthComputable) {
 					var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-					$("#special").html("uploading file: "+ perc + "% loaded...");
+					//$("#special").html("File: "+f.name+" "+ perc + "% loaded...");
+					$("#header_log").html("File: "+f.name+" "+ perc);
 				} else {
 				}
 			}
 			finalURL = dirURL + options.fileName;
 			ft.upload(finalURL, uri, win, fail, options);
 		}
+		// new routine based on callback to move uploaded files to save directory
     	},
 	cleanup: function() {
 		//console.log("IntroView cleanup");
