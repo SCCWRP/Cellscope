@@ -370,7 +370,7 @@ var app = {
 	        }
     	});
   },
-  uploadFile: function(fs,f) {
+  uploadFile: function(fs,f,lf) {
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
@@ -380,6 +380,9 @@ var app = {
 				f.moveTo(dirEntry, f.name, 
 					function onSuccessMove(){
 						app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
+					        if(lf == true){
+					        	$("#header_log").html("Uploading Complete!");
+					        }
 					}, app.onError);
 			}, app.onError);
     	}

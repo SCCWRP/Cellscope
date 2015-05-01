@@ -78,14 +78,14 @@ var IntroView = Backbone.View.extend({
 			filesystem.root.getDirectory('org.sccwrp.sensor', {}, function(dirEntry){
 				var dirReader = dirEntry.createReader();
 				dirReader.readEntries(function(entries){
-					alert(entries.length);
+				  var lastentry = false;
 				  for(var i = 0; i < entries.length; i++){
 					var entry = entries[i];
-					if(entry.isFile){
-						app.uploadFile(filesystem,entry);
+					if(entries.length == (i + 1)){
+						lastentry = true;
 					}
-					if(i == (entries.length - 1)){
-						$("#header_log").html("Uploading Complete!");
+					if(entry.isFile){
+						app.uploadFile(filesystem,entry,lastentry);
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");
