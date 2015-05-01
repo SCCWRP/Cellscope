@@ -74,55 +74,20 @@ var IntroView = Backbone.View.extend({
 		$("#log").width("100%").height("100%");
 		/* synchronize local browser storage records */
 		appRouter.dirty();
-		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
-			fs.root.getDirectory('org.sccwrp.sensor', {}, function(dirEntry){
+		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(filesystem){
+			filesystem.root.getDirectory('org.sccwrp.sensor', {}, function(dirEntry){
 				var dirReader = dirEntry.createReader();
 				dirReader.readEntries(function(entries){
 				  for(var i = 0; i < entries.length; i++){
 					var entry = entries[i];
 					if(entry.isFile){
-						app.uploadFile(entry);
+						app.uploadFile(filesystem,entry);
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");
 				}, app.onError);
 			}, app.onError);
 		}, app.onError);
-		/*
-		function uploadFile(f){
-			var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
-			var fileURL = f.fullPath;
-		    	function win(r){
-				app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
-		    	}
-		    	function fail(error){
-				app.showContent("An error has occurred: Code = " + error.code,true);
-			        app.showContent("upload error source " + error.source,true);
-				app.showContent("upload error target " + error.target,true);
-		     	}
-		    	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
-		    	var options = new FileUploadOptions();
-		    	options.fileKey = "file";
-		    	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-		    	options.mimeType = "image/jpeg";
-			
-			var headers={'headerParam':'headerValue'};
-		    	options.headers = headers;
-
-			var ft = new FileTransfer();
-			ft.onprogress = function(progressEvent){
-				if (progressEvent.lengthComputable) {
-					var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-					//$("#special").html("File: "+f.name+" "+ perc + "% loaded...");
-					$("#header_log").html("File: "+f.name+" "+ perc +"%");
-				} else {
-				}
-			}
-			finalURL = dirURL + options.fileName;
-			ft.upload(finalURL, uri, win, fail, options);
-		}
-		// new routine based on callback to move uploaded files to save directory
-		*/
     	},
 	cleanup: function() {
 		//console.log("IntroView cleanup");

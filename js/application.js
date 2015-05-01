@@ -288,7 +288,7 @@ var app = {
         }
 	// ios bug
      	//navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
-     	navigator.camera.getPicture(onSuccess, onFail, { quality: 10, destinationType: Camera.DestinationType.DATA_URI });
+     	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI });
   },
   getGPSOnSuccess: function(position){
 	latlon = position.coords.latitude + "," + position.coords.longitude
@@ -370,11 +370,23 @@ var app = {
 	        }
     	});
   },
-  uploadFile: function(f) {
+  uploadFile: function(fs,f) {
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
 		//app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
+		// move finished file to save folder
+		// get directory/create subdirectory/move fil
+		fs.root.getDirectory('org.sccwrp.sensor/save', {create: true},
+			function(dirEntry) {
+				//f.moveTo(dirEntry, f.name, onSuccessMove, app.onError);
+				f.moveTo(dirEntry, f.name, 
+					function onSuccessMove(){
+						app.showContent("move file<br>",true);
+					}, app.onError);
+				//app.showContent("move file<br>",true);
+			}, app.onError);
+		});
 		app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
@@ -388,8 +400,10 @@ var app = {
     	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
     	options.mimeType = "image/jpeg";
 	
-	var headers={'headerParam':'headerValue'};
-    	options.headers = headers;
+	//var headers={'headerParam':'headerValue','Connection':'Close'};
+    	//options.headers = headers;
+        options.headers = { Connection: "Close" };
+	options.chunkedMode = false;
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
