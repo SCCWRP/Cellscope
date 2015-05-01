@@ -371,50 +371,39 @@ var app = {
     	});
   },
   uploadFile: function(e) {
-	alert("application.js uploadFile");
-	//var fileURL = "file://storage/sdcard0/test.txt"; old
-	//var fileURL = "cdvfile://localhost/persistent/test.txt"; new 
+	alert("app.uploadFile");
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
-	//var fileURL = "cdvfile://localhost/persistent/test.txt";
-	var fileURL = e.fullPath;
-	//alert("fileURL: "+fileURL);
+	var fileURL = f.fullPath;
     	function win(r){
-        	//app.showContent("Code = " + r.responseCode);
-            	//app.showContent("Response = " + r.response);
-	        //app.showContent("Sent = " + r.bytesSent);
-	}
-        function fail(error){
-		app.showContent("An error has occurred: Code = " + error.code);
-	    	app.showContent("upload error source " + error.source);
-	   	app.showContent("upload error target " + error.target);
-		ft.upload(finalURL, uri, win, fail, options);
-	}
-	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
-
+		app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
+    	}
+    	function fail(error){
+		app.showContent("An error has occurred: Code = " + error.code,true);
+	        app.showContent("upload error source " + error.source,true);
+		app.showContent("upload error target " + error.target,true);
+     	}
+    	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
     	var options = new FileUploadOptions();
-        options.fileKey = "file";
-	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
-        options.mimeType = "image/jpeg";
-	//var headers={'headerParam':'headerValue'};
-	//options.headers = headers;
-	options.params = {}; // if we need to send parameters to the server request 
-	options.headers = {
-		Connection: "Close"
-	};
-	options.chunkedMode = false;
+    	options.fileKey = "file";
+    	options.fileName = fileURL.substr(fileURL.lastIndexOf('/')+1);
+    	options.mimeType = "image/jpeg";
+	
+	var headers={'headerParam':'headerValue'};
+    	options.headers = headers;
 
 	var ft = new FileTransfer();
 	ft.onprogress = function(progressEvent){
-		if(progressEvent.lengthComputable){
-			  //loadingStatus.setPercentage(progressEvent.loaded / progressEvent.total);
-			  var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-			  app.showContent("Uploading file: "+ perc + "% loaded...");
-	  	} else {
-			  //loadingStatus.increment();
-	 	}
+	  if (progressEvent.lengthComputable) {
+		var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+		//$("#special").html("File: "+f.name+" "+ perc + "% loaded...");
+		$("#header_log").html("File: "+f.name+" "+ perc +"%");
+	  } else {
+		// empty/fix
+	  }
 	}
 	finalURL = dirURL + options.fileName;
 	ft.upload(finalURL, uri, win, fail, options);
+	// new routine based on callback to move uploaded files to save directory
   },
   onDeviceReady: function(){
 	if(isDevice){
