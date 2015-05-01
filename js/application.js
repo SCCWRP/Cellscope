@@ -301,9 +301,9 @@ var app = {
   },
   showContent: function(s,t) {
     if(t){	
-       	$("#log").append(s);
+       	$("#content").append(s);
     } else {
-    	$("#log").html(s);
+    	$("#content").html(s);
     }	
   },
   onFSSuccess: function(fs){
