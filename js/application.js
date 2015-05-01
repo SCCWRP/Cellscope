@@ -382,11 +382,13 @@ var app = {
 				//f.moveTo(dirEntry, f.name, onSuccessMove, app.onError);
 				f.moveTo(dirEntry, f.name, 
 					function onSuccessMove(){
-						app.showContent("move file<br>",true);
+						//app.showContent("move file<br>",true);
+						//app.showContent("Finished file: "+f.name+"<br>",true);
+						app.showContent("Finished file: "+f.name+"<img src='img/Circle_Green.png'><br>",true);
 					}, app.onError);
 				//app.showContent("move file<br>",true);
 			}, app.onError);
-		app.showContent("Finished file: "+f.name+"<br>",true);
+		//app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
 		app.showContent("An error has occurred: Code = " + error.code,true);
@@ -409,7 +411,7 @@ var app = {
 	  if (progressEvent.lengthComputable) {
 		var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 		//$("#special").html("File: "+f.name+" "+ perc + "% loaded...");
-		$("#header_log").html("File: "+f.name+" "+ perc +"%");
+		$("#header_log").html("Uploading: "+f.name+" "+ perc +"%");
 	  } else {
 		// empty/fix
 	  }
