@@ -278,7 +278,7 @@ var app = {
     	function onSuccessMove(f){
 		alert("Successfully saved picture.");
 		savedPicture = true;
-		app.showContent(f);
+		//app.showContent(f);
      	}
     	function onSuccess(imageURI){
 		var returnFile = findPictureLocation(imageURI);
@@ -384,7 +384,7 @@ var app = {
 					function onSuccessMove(){
 						//app.showContent("move file<br>",true);
 						//app.showContent("Finished file: "+f.name+"<br>",true);
-						app.showContent("Finished file: "+f.name+"<img src='img/Circle_Green.png'><br>",true);
+						app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
 					}, app.onError);
 				//app.showContent("move file<br>",true);
 			}, app.onError);
