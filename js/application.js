@@ -386,7 +386,6 @@ var app = {
 					}, app.onError);
 				//app.showContent("move file<br>",true);
 			}, app.onError);
-		});
 		app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
