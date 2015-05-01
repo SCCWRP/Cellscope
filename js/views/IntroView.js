@@ -84,7 +84,7 @@ var IntroView = Backbone.View.extend({
 					if(entry.isFile){
 						app.uploadFile(filesystem,entry);
 					}
-					if(i == entries.length){
+					if(i == (entries.length - 1)){
 						$("#header_log").html("Uploading Complete!");
 					}
 				  }
