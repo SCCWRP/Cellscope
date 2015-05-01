@@ -72,7 +72,6 @@ var IntroView = Backbone.View.extend({
 		$("#header").show();
 		$("#header").html('<a href="./index.html" id="home" data-role="button" class="ui-btn ui-icon-back">Back to Home</a><div id="header_log"></div>');
 		$("#home").show();
-		$("#log").width("100%").height("100%");
 		/* synchronize local browser storage records */
 		appRouter.dirty();
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(filesystem){
@@ -83,6 +82,9 @@ var IntroView = Backbone.View.extend({
 					var entry = entries[i];
 					if(entry.isFile){
 						app.uploadFile(filesystem,entry);
+					}
+					if(i == (entries.length - 1)){
+						$("#header_log").html("Uploading Complete!: "+f.name);
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");

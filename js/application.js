@@ -374,21 +374,14 @@ var app = {
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
-		//app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
-		// move finished file to save folder
-		// get directory/create subdirectory/move fil
+		// get directory/create subdirectory/move file to save folder
 		fs.root.getDirectory('org.sccwrp.sensor/save', {create: true},
 			function(dirEntry) {
-				//f.moveTo(dirEntry, f.name, onSuccessMove, app.onError);
 				f.moveTo(dirEntry, f.name, 
 					function onSuccessMove(){
-						//app.showContent("move file<br>",true);
-						//app.showContent("Finished file: "+f.name+"<br>",true);
 						app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
 					}, app.onError);
-				//app.showContent("move file<br>",true);
 			}, app.onError);
-		//app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
 		app.showContent("Failed file: "+f.name+" - "+error.code+"&nbsp;&nbsp;<img src='img/red_check.png'><br>",true);
@@ -411,7 +404,6 @@ var app = {
 	ft.onprogress = function(progressEvent){
 	  if (progressEvent.lengthComputable) {
 		var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-		//$("#special").html("File: "+f.name+" "+ perc + "% loaded...");
 		$("#header_log").html("Uploading: "+f.name+" "+ perc +"%");
 	  } else {
 		// empty/fix
@@ -419,7 +411,6 @@ var app = {
 	}
 	finalURL = dirURL + options.fileName;
 	ft.upload(finalURL, uri, win, fail, options);
-	// new routine based on callback to move uploaded files to save directory
   },
   onDeviceReady: function(){
 	if(isDevice){
