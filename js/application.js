@@ -371,12 +371,11 @@ var app = {
     	});
   },
   uploadFile: function(f) {
-	alert("app.uploadFile");
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
-		alert("win");
-		app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
+		//app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
+		app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
 		app.showContent("An error has occurred: Code = " + error.code,true);
