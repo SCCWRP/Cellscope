@@ -370,11 +370,12 @@ var app = {
 	        }
     	});
   },
-  uploadFile: function(e) {
+  uploadFile: function(f) {
 	alert("app.uploadFile");
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
+		alert("win");
 		app.showContent("Finished file: "+f.name+"<img src='img/surveyIcon.png'><br>",true);
     	}
     	function fail(error){
