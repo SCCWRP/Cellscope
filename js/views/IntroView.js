@@ -60,9 +60,10 @@ var IntroView = Backbone.View.extend({
 				answerListView.endquestion = MAXQUESTION;
 			},
 		    	error: function(model, response){
-				console.log(response.responseText);
-				console.log(response.status);
-				console.log(response.statusText);
+				app.showContent("Error: "+response.responseText);
+				//console.log(response.responseText);
+				//console.log(response.status);
+				//console.log(response.statusText);
 			}
 		});
      	},

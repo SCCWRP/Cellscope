@@ -391,9 +391,10 @@ var app = {
 		//app.showContent("Finished file: "+f.name+"<br>",true);
     	}
     	function fail(error){
-		app.showContent("An error has occurred: Code = " + error.code,true);
-	        app.showContent("upload error source " + error.source,true);
-		app.showContent("upload error target " + error.target,true);
+		app.showContent("Failed file: "+f.name+" - "+error.code+"&nbsp;&nbsp;<img src='img/red_check.png'><br>",true);
+		//app.showContent("An error has occurred: Code = " + error.code,true);
+	        //app.showContent("upload error source " + error.source,true);
+		//app.showContent("upload error target " + error.target,true);
      	}
     	var uri = encodeURI("http://data.sccwrp.org/sensor/upload.php");
     	var options = new FileUploadOptions();
