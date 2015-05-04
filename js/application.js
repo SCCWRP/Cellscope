@@ -452,6 +452,7 @@ var app = {
     		document.addEventListener("deviceready", function(){
 			//alert("isDevice deviceready");
 			app.onDeviceReady();
+			app.dialog("Survey is Complete","Notification","Ok");
 			window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, app.onFSSuccess, app.onError); // mobile only
 			//latlon = navigator.geolocation.getCurrentPosition(app.getGPSOnSuccess, app.getGPSOnFailure);
 			//var fieldDevices = ['abae1013824c8333','ebd56c30eef8e2eb','9ec53f2ff0b4a575','b57e96cae7cba8c2','718dfae3b57d403d','a34121f5cc60376d','4960b272250be85f','f85e8f96c2ae66f5','ee4c43311b41d6bf','33c9a697c1271b28'];
