@@ -272,7 +272,7 @@ var AnswerListView = Backbone.View.extend({
 						} else {
 							// clear stage and events
 							that.cleanup();
-							alert("End Survey");
+							app.dialog("Survey is Complete","Notification","Ok");
 							appRouter.navigate('/', {trigger: false});
 							location.assign(HOME);
 						}
