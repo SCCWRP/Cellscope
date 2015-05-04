@@ -112,7 +112,6 @@ var appRouter = new (Backbone.Router.extend({
   }
 }));
 var app = {
-  //dialog: function(message){
   dialog: function(message,title,button){
 	if(isDevice == true){
 		function alertDismiss(){
@@ -120,7 +119,7 @@ var app = {
 		}
 		navigator.notification.alert(
 			message,
-		        //alertDismiss,         // callback
+		        alertDismiss,         // callback
 			title,
 			button
 		);
