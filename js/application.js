@@ -192,7 +192,7 @@ var app = {
   	function fileAppend(fs){
     		fs.createWriter(function(fileWriter) {
 			fileWriter.onwrite = function(evt) {
-			    app.dialog("Survey is Complete/saveLocalData","Notification","Ok");
+			    app.dialog("Survey is Complete","Notification","Ok");
 			    appRouter.navigate('/', {trigger: false});
 			    location.assign(HOME);
 		        };
