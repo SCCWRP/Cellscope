@@ -393,7 +393,7 @@ var app = {
 			}, app.onError);
     	}
     	function fail(error){
-		app.showContent("Failed file: "+f.name+" - "+error.code+"&nbsp;&nbsp;<img src='img/red_check.png'><br>",true);
+		app.showContent("Failed file: "+f.name+" - "+error.code+"&nbsp;&nbsp;<img src='img/red_stop.png'><br>",true);
 		//app.showContent("An error has occurred: Code = " + error.code,true);
 	        //app.showContent("upload error source " + error.source,true);
 		//app.showContent("upload error target " + error.target,true);
