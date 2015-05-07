@@ -302,6 +302,9 @@ var app = {
 			var returnFile = findPictureLocation(imageURI);
 			app.showContent(returnFile);
      		}
+       		function onFail(message){
+       			callback("failed: "+ message);
+        	}
 		navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI, sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM });
 	}
   },
