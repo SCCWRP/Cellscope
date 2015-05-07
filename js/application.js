@@ -298,10 +298,11 @@ var app = {
      	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI });
 	} else {
     		function onSuccess(imageURI){
+			alert("Image Gallery onSuccess");
 			var returnFile = findPictureLocation(imageURI);
 			app.showContent(returnFile);
      		}
-		navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI, sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM });
 	}
   },
   getGPSOnSuccess: function(position){
