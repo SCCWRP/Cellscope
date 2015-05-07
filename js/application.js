@@ -267,7 +267,15 @@ var app = {
 		var fileName = currentTime + ".jpg";
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
-		t.set({ picture_url: completeUrl });
+		// get existing url and add to it if necessary - image library choices
+		var existingUrl = this.model.get('picture_url');
+		// is it set already
+		if(existingUrl){
+			var newUrl = existingUrl + "," + completeUrl;
+		} else {
+			var newUrl = completeUrl;
+		}
+		t.set({ picture_url: newUrl });
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
 			fileSystem = fs;
 			fileSystem.root.getDirectory('org.sccwrp.sensor', {create: true},
