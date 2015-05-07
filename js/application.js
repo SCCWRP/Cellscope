@@ -268,7 +268,7 @@ var app = {
 		var baseUrl = "http://data.sccwrp.org/sensor/files/";
 		var completeUrl = baseUrl + fileName;
 		// get existing url and add to it if necessary - image library choices
-		var existingUrl = this.model.get('picture_url');
+		var existingUrl = t.get('picture_url');
 		// is it set already
 		var newUrl;
 		if(existingUrl){
