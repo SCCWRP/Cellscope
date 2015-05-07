@@ -270,10 +270,11 @@ var app = {
 		// get existing url and add to it if necessary - image library choices
 		var existingUrl = this.model.get('picture_url');
 		// is it set already
+		var newUrl;
 		if(existingUrl){
-			var newUrl = existingUrl + "," + completeUrl;
+			newUrl = existingUrl + "," + completeUrl;
 		} else {
-			var newUrl = completeUrl;
+			newUrl = completeUrl;
 		}
 		t.set({ picture_url: newUrl });
 		window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, function(fs){
