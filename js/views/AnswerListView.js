@@ -230,11 +230,15 @@ var AnswerListView = Backbone.View.extend({
 		// next question  
 		var nextQuestion = (currentQuestion + 1);
 		var participant_type = this.model.get("q1");
-		//if(currentQuestion == 2 && currentAnswer == "Yes"){
-		if(currentQuestion == 5 && currentAnswer == "Yes"){
+		//if(currentQuestion == 5 && currentAnswer == "Yes"){
+		if(currentQuestion == 5 && currentAnswer == "No"){
+			nextQuestion += 1;
+		}
+		if(currentQuestion == 6){
+			alert(currentAnswer);
 			var testUrl = "disabled";
 			if(isDevice){
-				app.getCamera(function(imgUrl){ }, this.model);
+				app.getImage(function(imgUrl){ }, this.model, currentAnswer);
 			} else {
 				this.model.set({ picture_url: testUrl });
 			}

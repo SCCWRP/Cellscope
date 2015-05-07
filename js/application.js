@@ -259,7 +259,8 @@ var app = {
                 }
         });
   },
-  getCamera: function(callback,t){
+  getImage: function(callback,t,choice){
+	if(choice == "Camera"){
 	var imgUrl;
 	function movePicture(picture){
 		var currentDate = new Date();
@@ -295,6 +296,13 @@ var app = {
 	// ios bug
      	//navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
      	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI });
+	} else {
+    		function onSuccess(imageURI){
+			var returnFile = findPictureLocation(imageURI);
+			app.showContent(returnFile);
+     		}
+		navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: destinationType.FILE_URI, sourceType: pictureSource.PHOTOLIBRARY });
+	}
   },
   getGPSOnSuccess: function(position){
 	latlon = position.coords.latitude + "," + position.coords.longitude

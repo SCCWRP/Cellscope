@@ -78,6 +78,20 @@
       	"id": "5"
   },
   {
+	"title": "Select pictures to be linked to record.",
+	"action": "none",
+      	"type": "radio",
+      	"menu": "Camera,Library",
+        "other": "n",
+	"otype": "",
+  	"answer": "",
+	"decline": "no",
+	"declinedefault": "",
+	"errmessage": "",
+      	"status": "incomplete",
+      	"id": "6"
+  },
+  {
 	"title": "End Survey?",
 	"action": "none",
       	"type": "radio",
@@ -89,6 +103,6 @@
 	"declinedefault": "",
 	"errmessage": "",
       	"status": "incomplete",
-      	"id": "6"
+      	"id": "7"
   }
 ]
