@@ -297,6 +297,7 @@ var app = {
      	//navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
      	navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI });
 	} else {
+		alert("enter else");
     		function onSuccess(imageURI){
 			alert("Image Gallery onSuccess");
 			var returnFile = findPictureLocation(imageURI);
@@ -305,7 +306,16 @@ var app = {
        		function onFail(message){
        			callback("failed: "+ message);
         	}
-		navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI, sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM });
+		window.imagePicker.getPictures(
+			function(results){
+				for(var i = 0; i < results.length; i++){
+					alert('Image URI: ' + results[i]);
+				}
+			}, function(error){
+				alert('Error: '+error);
+			}
+		);
+		//navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.DATA_URI, sourceType: Camera.PictureSourceType.SAVEDPHOTOALBUM });
 	}
   },
   getGPSOnSuccess: function(position){
