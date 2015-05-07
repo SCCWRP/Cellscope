@@ -16,4 +16,5 @@
     <gap:plugin name="org.apache.cordova.camera" version="0.3.2" />
     <gap:plugin name="org.apache.cordova.dialogs" />
     <gap:plugin name="org.apache.cordova.core.geolocation" />
+    <gap:plugin name="com.synconset.imagepicker" version="1.0.4" />
 </widget>
