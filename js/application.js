@@ -294,8 +294,18 @@ var app = {
 		//app.dialog("Saved Picture","Notification","Ok");
 		savedPicture = true;
 		if(choice == "Camera"){
-			alert("Another?");
-				app.getImage(function(imgUrl){ }, t, "Camera");
+			function onConfirm(buttonIndex){
+				alert('You selected button: '+buttonIndex);
+				if(buttonIndex == "0"){
+					app.getImage(function(imgUrl){ }, t, "Camera");
+				}
+			}
+	                navigator.notification.confirm(
+	                        "Another picture?",
+	                        onConfirm,         // callback
+	                        "Confirm",
+	                        ['Yes','No']
+			);
 		}
 		//app.showContent(f);
      	}
