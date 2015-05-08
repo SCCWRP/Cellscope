@@ -296,7 +296,7 @@ var app = {
 		if(choice == "Camera"){
 			function onConfirm(buttonIndex){
 				alert('You selected button: '+buttonIndex);
-				if(buttonIndex == "1"){
+				if(buttonIndex == 1){
 					app.getImage(function(imgUrl){ }, t, "Camera");
 				}
 			}
