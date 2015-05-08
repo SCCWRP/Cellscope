@@ -291,8 +291,12 @@ var app = {
 	}
     	function onSuccessMove(f){
 		//alert("Successfully saved picture.");
-		app.dialog("Saved Picture","Notification","Ok");
+		//app.dialog("Saved Picture","Notification","Ok");
 		savedPicture = true;
+		if(choice == "Camera"){
+			alert("Another?");
+				app.getImage(function(imgUrl){ }, t, "Camera");
+		}
 		//app.showContent(f);
      	}
     	function onSuccess(imageURI){
