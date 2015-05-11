@@ -81,7 +81,8 @@ var IntroView = Backbone.View.extend({
 				  var lastentry = false;
 				  for(var i = 0; i < entries.length; i++){
 					var entry = entries[i];
-					alert(entries.length - 1);
+					alert("i: "+i);
+					alert("entries.length: "+(entries.length - 1));
 					if(i == (entries.length - 1)){
 						lastentry = true;
 					}
