@@ -444,7 +444,7 @@ var app = {
 			function(dirEntry) {
 				f.moveTo(dirEntry, f.name, 
 					function onSuccessMove(){
-						app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
+						//app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
 					        if(lf == true){
 					        	$("#header_log").html("Uploading Complete!");
 					        }
@@ -473,9 +473,10 @@ var app = {
 	  if (progressEvent.lengthComputable) {
 		var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 		$("#header_log").html("Uploading: "+f.name+" "+ perc +"%");
-	  } else {
-		// empty/fix
-	  }
+	  } 
+	}
+	ft.onloadend = function(endEvent){
+		app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
 	}
 	finalURL = dirURL + options.fileName;
 	ft.upload(finalURL, uri, win, fail, options);

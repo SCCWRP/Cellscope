@@ -54,7 +54,7 @@ var AnswerListView = Backbone.View.extend({
 	},
 	processKeyup: function(event) {
 		if(event.keyCode == 13){
-			alert("processKeyup keycode13: "+event);
+			//alert("processKeyup keycode13: "+event);
 			this.saveAnswer(event);
 		}
 	},
@@ -235,7 +235,6 @@ var AnswerListView = Backbone.View.extend({
 			nextQuestion += 1;
 		}
 		if(currentQuestion == 6){
-			alert(currentAnswer);
 			var testUrl = "disabled";
 			if(isDevice){
 				app.getImage(function(imgUrl){ }, this.model, currentAnswer);
