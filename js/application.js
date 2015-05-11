@@ -295,7 +295,7 @@ var app = {
 		savedPicture = true;
 		if(choice == "Camera"){
 			function onConfirm(buttonIndex){
-				alert('You selected button: '+buttonIndex);
+				//alert('You selected button: '+buttonIndex);
 				if(buttonIndex == 1){
 					app.getImage(function(imgUrl){ }, t, "Camera");
 				}
@@ -444,8 +444,8 @@ var app = {
 			function(dirEntry) {
 				f.moveTo(dirEntry, f.name, 
 					function onSuccessMove(){
-						//app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
-					        if(lf == true){
+						app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
+					        if(lf == "true"){
 					        	$("#header_log").html("Uploading Complete!");
 					        }
 					}, app.onError);
@@ -474,9 +474,6 @@ var app = {
 		var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 		$("#header_log").html("Uploading: "+f.name+" "+ perc +"%");
 	  } 
-	}
-	ft.onloadend = function(endEvent){
-		app.showContent("Finished file: "+f.name+"&nbsp;&nbsp;<img src='img/green_check.png'><br>",true);
 	}
 	finalURL = dirURL + options.fileName;
 	ft.upload(finalURL, uri, win, fail, options);
