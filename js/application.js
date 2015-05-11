@@ -436,7 +436,6 @@ var app = {
     	});
   },
   uploadFile: function(fs,f,lf) {
-	alert(lf);
 	var dirURL = "cdvfile://localhost/persistent/org.sccwrp.sensor/";
 	var fileURL = f.fullPath;
     	function win(r){
