@@ -88,7 +88,9 @@ var IntroView = Backbone.View.extend({
 						lastentry = true;
 						/* if the last entry is a directory (save directory most likely)
 						  then let user know that file upload is finished */
+						alert(entry.fullPath);
 						if(entry.isDirectory){
+							alert("isDirectory");
 							$("#header_log").html("Uploading Complete!");
 						}
 					}
