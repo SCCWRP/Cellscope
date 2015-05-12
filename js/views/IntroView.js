@@ -82,21 +82,17 @@ var IntroView = Backbone.View.extend({
 				  // problem one entry is a directory "save"
 				  for(var i = 0; i < entries.length; i++){
 					var entry = entries[i];
-					//alert("i: "+i);
-					//alert("entries.length: "+(entries.length - 1));
 					if(i == (entries.length - 1)){
 						lastentry = true;
 						/* if the last entry is a directory (save directory most likely)
 						  then let user know that file upload is finished */
-						alert(entry.fullPath);
-						if(entry.isDirectory){
-							alert("isDirectory");
-							$("#header_log").html("Uploading Complete!");
-						}
 					}
 					// only upload file if it is file and not a directory
-					if(entry.isFile){
+					if(entry.isFile && (!lastentry)){
 						app.uploadFile(filesystem,entry,lastentry);
+					}
+					if(lastentry){
+						$("#header_log").html("Uploading Complete!");
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");
