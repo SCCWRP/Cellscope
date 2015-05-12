@@ -79,6 +79,7 @@ var IntroView = Backbone.View.extend({
 				var dirReader = dirEntry.createReader();
 				dirReader.readEntries(function(entries){
 				  var lastentry = false;
+				  // problem one entry is a directory "save"
 				  for(var i = 0; i < entries.length; i++){
 					var entry = entries[i];
 					alert("i: "+i);
@@ -86,10 +87,12 @@ var IntroView = Backbone.View.extend({
 					if(i == (entries.length - 1)){
 						lastentry = true;
 					}
-					alert(entry.isFile);
 					if(entry.isFile){
-						alert(lastentry);
+						alert(entries[i]);
 						app.uploadFile(filesystem,entry,lastentry);
+					}
+					if(entry.isDir){
+						alert(entries[i]);
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");
