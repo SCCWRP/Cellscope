@@ -87,12 +87,12 @@ var IntroView = Backbone.View.extend({
 					if(i == (entries.length - 1)){
 						lastentry = true;
 					}
-					if(entry.isFile){
-						alert(entries[i]);
-						app.uploadFile(filesystem,entry,lastentry);
+					if(entry.isDirectory){
+						alert(entry.fullPath);
 					}
-					if(entry.isDir){
-						alert(entries[i]);
+					if(entry.isFile){
+						alert(entry.fullPath);
+						app.uploadFile(filesystem,entry,lastentry);
 					}
 				  }
 				//alert("Finished uploading to SCCWRP");
