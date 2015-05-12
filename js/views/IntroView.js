@@ -86,6 +86,7 @@ var IntroView = Backbone.View.extend({
 					if(i == (entries.length - 1)){
 						lastentry = true;
 					}
+					alert(entry.isFile);
 					if(entry.isFile){
 						alert(lastentry);
 						app.uploadFile(filesystem,entry,lastentry);
