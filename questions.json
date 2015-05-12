@@ -30,6 +30,7 @@
       	"status": "incomplete",
 	"placeholder": "",
 	"placetype": "datetime-local",
+	"check": "0",
       	"id": "2"
   },
   {
