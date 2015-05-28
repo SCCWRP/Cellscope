@@ -12,7 +12,7 @@
 	"errmessage": "",
       	"status": "incomplete",
 	"placeholder": "Enter station number",
-	"placetype": "number",
+	"placetype": "text",
 	"check": "0",
       	"id": "1"
   },
