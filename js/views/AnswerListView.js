@@ -237,6 +237,7 @@ var AnswerListView = Backbone.View.extend({
 		if(currentQuestion == 6){
 			var testUrl = "disabled";
 			if(isDevice){
+				$("#one").hide();
 				app.getImage(function(imgUrl){ }, this.model, currentAnswer);
 			} else {
 				this.model.set({ picture_url: testUrl });

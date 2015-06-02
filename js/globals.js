@@ -48,5 +48,36 @@ function custom_alert(output_msg, title_msg, callback) {
 		callbackClose: callback 
 		});		   
 };
+function custom_confirm(output_msg, title_msg, btn1, btn2, callback) {
+	    if (!title_msg)
+		    title_msg = '';
+
+	    if (!output_msg)
+		    output_msg = 'No Message to Display.';
+	    
+ 	   $("<div id=popup>").simpledialog2({
+       		mode: "button",
+		headerText: title_msg,
+		headerClose: false,
+		buttonPrompt: output_msg,
+		buttons : {
+			"Yes": {
+				click: function(){
+					callback("yes");
+				},
+		   		close: true
+			},
+		   	"No": {
+				click: function(){
+					callback("no");
+				},
+		   		icon: "delete",
+		   		theme: "c",
+		   		close: true
+			}
+	   	},
+		//callbackClose: callback 
+	  });		   
+};
 
 window.requestFileSystem  = window.requestFileSystem || window.webkitRequestFileSystem;

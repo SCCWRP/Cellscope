@@ -192,7 +192,6 @@ var app = {
   	function fileAppend(fs){
     		fs.createWriter(function(fileWriter) {
 			fileWriter.onwrite = function(evt) {
-			    app.dialog("Survey is Complete","Notification","Ok");
 			    appRouter.navigate('/', {trigger: false});
 			    location.assign(HOME);
 		        };
@@ -290,12 +289,19 @@ var app = {
 		window.resolveLocalFileSystemURI(file, movePicture, app.onError);
 	}
     	function onSuccessMove(f){
-		//alert("Successfully saved picture.");
-		//app.dialog("Saved Picture","Notification","Ok");
 		savedPicture = true;
+		function onConfirm(e){
+			if(e == "yes"){
+				app.getImage(function(imgUrl){ }, t, "Camera");
+			}
+			if(e == "no"){
+				$("#one").show();
+			}
+		}
 		if(choice == "Camera"){
+			custom_confirm("Would you like to add another picture?", "Additional Picture", "Yes", "No", onConfirm);
+			/* old code - created bug in interface when user rotate camera the following dialogs were upside down 
 			function onConfirm(buttonIndex){
-				//alert('You selected button: '+buttonIndex);
 				if(buttonIndex == 1){
 					app.getImage(function(imgUrl){ }, t, "Camera");
 				}
@@ -306,6 +312,7 @@ var app = {
 	                        "Confirm",
 	                        ['Yes','No']
 			);
+			*/
 		}
 		//app.showContent(f);
      	}
@@ -329,6 +336,7 @@ var app = {
 				alert('Error: '+error);
 			}
 		);
+		$("#one").show();
 	}
   },
   getGPSOnSuccess: function(position){
